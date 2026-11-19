@@ -1,0 +1,5284 @@
+MASTER PROMPT — SYMPHINE GAME SPACE
+
+ULTIMATE NATIVE ANDROID GAMING HUB & ADVANCED GAME LIBRARY
+
+Developer: Reo Moser
+Application Name: SYMPHINE GAME SPACE
+Version: 1.0.0
+Package Name: "com.symphine.gamespace"
+Platform: Android Native
+Architecture: Kotlin + Jetpack Compose + Material 3
+Build System: Android Gradle Kotlin DSL
+Minimum SDK: Android 10 (API 29)
+Target SDK: Latest stable SDK available in build environment
+Supported Platform: Android 10–16+
+CPU Architecture: ARM64 compatible
+Operating Mode: Offline-first, No-root core, Shizuku optional
+Application Type: Native Android Gaming Management & System Diagnostics Center
+
+---
+
+01. PROJECT OBJECTIVE
+
+Build a fully functional, production-oriented native Android application called SYMPHINE GAME SPACE, developed by Reo Moser.
+
+This application must be a complete Android Gaming Center inspired by the functionality and experience of gaming platforms such as Nubia RedMagic Gaming Space, ASUS ROG Gaming Center, Realme Game Space, POCO Game Turbo and modern gaming dashboards, but with original Symphine design, architecture, features and implementation.
+
+The application must not be a website, WebView application, HTML prototype, visual mockup, fake dashboard or non-functional UI.
+
+The project must contain real Kotlin source code, real Android APIs, actual application navigation, actual data, permission management, monitoring, local persistence, configuration management, compatibility detection, error handling and a working Android APK whenever the build environment allows.
+
+<text color="success" weight="semibold">Priority: Functional implementation over feature count. Never simulate a successful system operation.</text>
+
+Core objectives
+
+- Create a premium Android gaming management application.
+- Automatically detect installed games.
+- Provide individual Game Detail Centers for installed games.
+- Implement real Android device monitoring.
+- Implement supported display controls.
+- Implement safe and reversible system configuration.
+- Provide optional Shizuku integration.
+- Provide per-game customization and profile management.
+- Provide offline recommendation engine.
+- Implement real backup and restore.
+- Implement actual permission handling.
+- Support devices with different manufacturers, chipsets and Android versions.
+- Build an installable APK rather than stopping at source code or screenshots.
+
+---
+
+02. STRICT DEVELOPMENT RULES
+
+The developer or AI coding agent MUST follow these rules:
+
+1. Implement real functionality using native Android APIs.
+2. Never use WebView as the main application interface.
+3. Never fabricate monitoring data.
+4. Never display random CPU, RAM, GPU, temperature or FPS values.
+5. Never claim a system setting was successfully applied without verification.
+6. Never create buttons that do nothing.
+7. Never display fake FPS improvements or fake performance scores.
+8. Never claim universal Android compatibility.
+9. Never automatically modify undocumented system properties in bulk.
+10. Never disable Android thermal protection, security mechanisms or system-critical functionality.
+11. Never modify game files, game memory, game internals or anti-cheat systems.
+12. Never implement cheats, aim assist, auto-targeting, macros or gameplay manipulation.
+13. Never force-stop critical system applications.
+14. Never aggressively kill background applications.
+15. Never automatically delete user files.
+16. Never execute arbitrary commands generated from user input.
+17. Never require root for core application functionality.
+18. Shizuku must remain optional.
+19. If an API is inaccessible, display Unsupported, Unknown or Requires Permission.
+20. Every supported system modification must have validation, confirmation, backup when possible, verification and rollback.
+21. UI customization must not be confused with system configuration.
+22. All stored personal configurations must remain local unless the user explicitly exports them.
+23. Do not introduce unnecessary internet dependencies.
+24. Do not implement placeholder functionality merely to satisfy a feature list.
+25. Document all limitations clearly.
+
+---
+
+03. TECHNOLOGY STACK
+
+Use a modern, stable Android development stack.
+
+- Kotlin
+- Jetpack Compose
+- Material 3
+- AndroidX
+- Navigation Compose
+- AndroidX Lifecycle
+- ViewModel
+- Kotlin Coroutines
+- Flow and StateFlow
+- DataStore
+- Room for structured persistent data when necessary
+- Android PackageManager
+- Android ActivityManager
+- Android BatteryManager
+- Android PowerManager
+- Android DisplayManager
+- Android WindowManager
+- Android Settings APIs
+- Storage Access Framework
+- Android notification APIs
+- Android overlay APIs when permitted
+- Android MediaProjection APIs where applicable
+- Shizuku API
+- Android thermal APIs where available
+- Android graphics and display APIs
+- JSON serialization
+- Gradle Kotlin DSL
+
+Use stable dependencies compatible with the project's minimum Android version.
+
+Avoid unnecessary dependencies, abandoned libraries and incompatible Shizuku versions.
+
+---
+
+04. PROJECT ARCHITECTURE
+
+Create a clean, modular and maintainable project.
+
+Recommended architecture:
+
+com.symphine.gamespace
+│
+├── app
+│   ├── MainActivity.kt
+│   ├── SymphineApplication.kt
+│   └── AppNavigation.kt
+│
+├── core
+│   ├── model
+│   ├── ui
+│   ├── common
+│   ├── permissions
+│   ├── compatibility
+│   ├── monitoring
+│   ├── backup
+│   ├── settings
+│   └── utilities
+│
+├── data
+│   ├── database
+│   ├── datastore
+│   ├── repositories
+│   ├── serialization
+│   └── local
+│
+├── device
+│   ├── DeviceInfoProvider.kt
+│   ├── DisplayInfoProvider.kt
+│   ├── BatteryInfoProvider.kt
+│   ├── ThermalInfoProvider.kt
+│   ├── CpuInfoProvider.kt
+│   ├── MemoryInfoProvider.kt
+│   ├── StorageInfoProvider.kt
+│   └── GraphicsInfoProvider.kt
+│
+├── games
+│   ├── GameScanner.kt
+│   ├── GameRepository.kt
+│   ├── GameLauncher.kt
+│   ├── GameLibraryViewModel.kt
+│   ├── GameDetailViewModel.kt
+│   ├── GameSessionManager.kt
+│   ├── GameCustomizationRepository.kt
+│   └── GameProfileManager.kt
+│
+├── performance
+│   ├── ProfileEngine.kt
+│   ├── RecommendationEngine.kt
+│   ├── SettingsRegistry.kt
+│   ├── CompatibilityEngine.kt
+│   ├── ConfigurationHistory.kt
+│   └── RollbackManager.kt
+│
+├── display
+│   ├── RefreshRateManager.kt
+│   ├── ResolutionManager.kt
+│   ├── DensityManager.kt
+│   ├── DisplayBackupManager.kt
+│   └── DisplayCompatibility.kt
+│
+├── graphics
+│   ├── GraphicsDiagnostics.kt
+│   ├── RendererInformation.kt
+│   ├── AngleInformation.kt
+│   ├── VulkanInformation.kt
+│   └── GraphicsCompatibility.kt
+│
+├── shizuku
+│   ├── ShizukuManager.kt
+│   ├── ShizukuConnection.kt
+│   ├── ShizukuOperationRegistry.kt
+│   ├── ShizukuResult.kt
+│   └── ShizukuPermissionHandler.kt
+│
+├── overlay
+│   ├── GamingOverlayService.kt
+│   ├── OverlayController.kt
+│   ├── OverlayConfiguration.kt
+│   └── OverlayPermissionManager.kt
+│
+├── diagnostics
+│   ├── DiagnosticEngine.kt
+│   ├── PerformanceReport.kt
+│   ├── LoggingDiagnostics.kt
+│   ├── BackgroundDiagnostics.kt
+│   └── SystemCompatibilityReport.kt
+│
+├── backup
+│   ├── BackupEngine.kt
+│   ├── RestoreEngine.kt
+│   ├── BackupValidator.kt
+│   └── BackupSchema.kt
+│
+├── ui
+│   ├── theme
+│   ├── components
+│   ├── navigation
+│   ├── screens
+│   ├── dialogs
+│   └── state
+│
+└── settings
+    ├── AppSettings.kt
+    ├── UiSettings.kt
+    ├── GameSettings.kt
+    └── SystemSettings.kt
+
+The structure may be adapted to the implementation, but separation between UI, repositories, system APIs, monitoring and configuration logic must remain.
+
+---
+
+05. DESIGN SYSTEM — SYMPHINE LIQUID GLASS
+
+Create an original premium design.
+
+Visual identity
+
+- AMOLED Black.
+- Soft Lavender Gray.
+- Silver.
+- Purple Accent.
+- Dark graphite.
+- Frosted glass UI.
+- Liquid-inspired visual effects.
+- Soft gradients.
+- Modern Material 3.
+- Minimalist typography.
+- Premium gaming aesthetic.
+- Rounded cards.
+- Subtle borders.
+- Smooth animated transitions.
+- Clean spacing.
+- High contrast.
+- Responsive layouts.
+- Consistent iconography.
+
+Suggested color palette
+
+Background:         #08090D
+Surface:            #111319
+Surface Elevated:   #191B23
+Lavender Gray:      #B8B4C9
+Soft Silver:        #D5D5DF
+Purple Accent:      #A78BFA
+Secondary Accent:   #C4B5FD
+Muted Text:         #8D909C
+Border:             #292B35
+
+Colors must remain customizable.
+
+UI requirements
+
+- Animated bottom navigation.
+- Smooth page transitions.
+- Expandable cards.
+- Collapsible sections.
+- Loading indicators.
+- Empty states.
+- Error states.
+- Unsupported states.
+- Permission states.
+- Verified operation states.
+- Confirmation dialogs.
+- Preview screens.
+- Toasts or snackbar feedback.
+- Adaptive tablet layouts where practical.
+- Accessibility support.
+- Screen-reader labels.
+- Dynamic text sizing.
+- Reduced-motion preference support.
+
+Navigation
+
+Create primary navigation:
+
+1. Home
+2. Game Space
+3. Performance
+4. Monitoring
+5. Settings
+
+Individual game pages must provide their own secondary navigation.
+
+---
+
+06. HOME DASHBOARD
+
+Create a fully functional dashboard.
+
+Device information
+
+Display real data when accessible:
+
+- Device manufacturer.
+- Device model.
+- Android version.
+- API level.
+- Build information.
+- CPU architecture.
+- CPU model.
+- CPU core count.
+- Chipset information when available.
+- GPU information when available.
+- RAM.
+- Available RAM.
+- Storage.
+- Screen resolution.
+- Display density.
+- Supported refresh rates.
+- Current refresh rate.
+- Battery percentage.
+- Battery charging status.
+- Battery temperature when available.
+- Thermal status.
+- Shizuku connection status.
+- Active profile.
+- Active game when detectable.
+
+Dashboard cards
+
+- Device Overview.
+- Game Library.
+- Active Performance Profile.
+- Battery.
+- Thermal.
+- Memory.
+- Storage.
+- Display.
+- Shizuku.
+- Monitoring.
+- Recommended Settings.
+- Gaming Quick Actions.
+
+Quick actions
+
+- Scan Games.
+- Open Game Library.
+- Refresh Monitoring.
+- Display Center.
+- Performance Center.
+- Backup.
+- Diagnostics.
+- Shizuku Connection.
+
+Every quick action must navigate to a working function or execute a verified operation.
+
+---
+
+07. ADVANCED GAME LIBRARY — PRIMARY FEATURE
+
+The Game Library is the most important component of SYMPHINE GAME SPACE.
+
+Build a comprehensive native Game Management Center with independent customization and configuration for each installed game.
+
+Game detection
+
+Use Android PackageManager and appropriate package visibility declarations.
+
+Implement:
+
+- Installed application scanner.
+- Game classification.
+- Game category detection.
+- Package name.
+- Application name.
+- Application icon.
+- Version information where accessible.
+- Install information where accessible.
+- Launchable activity detection.
+- Game launcher.
+- Rescan.
+- Refresh.
+- Search.
+- Sorting.
+- Filtering.
+- Favorites.
+- Pinned games.
+- Hidden games.
+- Recently installed if available.
+- Recently played if locally tracked.
+- Custom groups.
+- Game tags.
+- Game notes.
+- Custom display label.
+- Custom banner.
+- Custom library icon.
+- Custom background.
+- Custom accent color.
+- Custom card style.
+
+Avoid indiscriminately exposing every installed package as a game.
+
+Use game category metadata where available, supplemented by a transparent user-controlled classification system.
+
+Library views
+
+Implement:
+
+- Grid view.
+- List view.
+- Compact view.
+- Large cards.
+- Search results.
+- Alphabetical sorting.
+- Reverse alphabetical sorting.
+- Recently installed.
+- Favorites.
+- Pinned.
+- Hidden.
+- Custom categories.
+- Custom groups.
+
+Game card
+
+Every game card should display:
+
+- Application icon.
+- Game name.
+- Optional custom banner.
+- Package name on demand.
+- Profile name.
+- Favorite status.
+- Pin status.
+- Game status.
+- Custom accent.
+- Launch action.
+- Game Detail Center action.
+
+Game management actions
+
+- Launch Game.
+- Add Favorite.
+- Remove Favorite.
+- Pin.
+- Unpin.
+- Hide.
+- Unhide.
+- Rename local label.
+- Change local icon.
+- Change local banner.
+- Add notes.
+- Add tags.
+- Assign group.
+- Assign profile.
+- Remove local customization.
+- Refresh information.
+- Open Android App Info.
+
+Bulk management
+
+Allow multi-selection for:
+
+- Favorite.
+- Unfavorite.
+- Pin.
+- Unpin.
+- Hide.
+- Unhide.
+- Assign group.
+- Assign profile.
+- Export configurations.
+- Backup configurations.
+- Reset selected local configurations.
+
+System-wide changes must not be blindly applied to all selected games.
+
+---
+
+08. INDIVIDUAL GAME DETAIL CENTER
+
+Every detected game must have a separate persistent Game Detail Center.
+
+Game Detail navigation
+
+Implement these sections:
+
+1. Overview.
+2. Performance.
+3. Display.
+4. Graphics.
+5. Memory.
+6. Battery.
+7. Thermal.
+8. Gaming Tools.
+9. Background.
+10. Customization.
+11. Monitoring.
+12. Compatibility.
+13. Profile.
+14. Advanced Settings.
+15. Backup.
+
+Use animated tabs, searchable settings, category filters, status indicators, descriptions, preview and reset actions.
+
+Game Overview
+
+Display:
+
+- Application icon.
+- Game name.
+- Package name.
+- Version if accessible.
+- Launch button.
+- Favorite toggle.
+- Pin status.
+- Active profile.
+- Profile summary.
+- Display configuration.
+- Current refresh rate.
+- Screen resolution.
+- Display density.
+- Thermal status.
+- Battery information.
+- Available memory.
+- Monitoring status.
+- Compatibility summary.
+- Customization summary.
+- Configuration history.
+- Recommended profile.
+
+---
+
+09. PER-GAME PROFILE ENGINE
+
+Create a persistent per-game profile system.
+
+Profiles
+
+- Balanced.
+- Gaming.
+- Battery Saver.
+- Smart.
+- Recommended.
+- Custom.
+- Gaming Stable.
+- Display Focus.
+- Monitoring Focus.
+- Custom Template.
+
+Profile functions
+
+- Select profile.
+- Preview profile.
+- Apply profile.
+- Save profile.
+- Clone profile.
+- Rename profile.
+- Delete custom profile.
+- Reset profile.
+- Export profile.
+- Import profile.
+- Restore profile.
+- Compare profiles.
+- View configuration history.
+- View compatibility.
+- Detect conflicts.
+- View operation status.
+- Verify supported operations.
+- Rollback failed operations.
+
+Profile activation
+
+Implement automatic profile activation only where a reliable, permitted mechanism exists.
+
+Do not rely on inaccessible process detection or unrestricted background execution.
+
+If reliable game session detection is unavailable, provide manual activation and explain the limitation.
+
+Automatic profile restoration must only occur when:
+
+- The operation is supported.
+- Original values have been recorded.
+- The application can reliably determine the relevant state.
+- The restoration process can be verified.
+
+---
+
+10. PER-GAME DISPLAY CENTER
+
+Display configuration must use supported Android APIs.
+
+Refresh Rate
+
+Display:
+
+- Current refresh rate.
+- Supported refresh rates.
+- Display mode information.
+- Adaptive refresh information where available.
+- Compatibility.
+- Current configuration.
+
+Options must be generated from actual device-supported modes.
+
+Do not hardcode 60, 90, 120 or 144 Hz as universally supported.
+
+Implement:
+
+- Supported mode selection.
+- Preview.
+- Apply.
+- Verification.
+- Reset.
+- Restore original configuration.
+- Configuration history.
+- Compatibility warnings.
+
+Per-game refresh-rate control must be implemented only where Android and the device support a reliable mechanism.
+
+Resolution Center
+
+Display:
+
+- Actual display resolution.
+- Display mode information.
+- Supported configurations if accessible.
+- Aspect ratio.
+- Compatibility.
+
+Implement supported resolution adjustment only through an appropriate, documented and validated mechanism.
+
+If the device cannot safely or reliably expose supported resolution adjustment, provide diagnostics and mark the feature Unsupported.
+
+Do not simulate a successful resolution change.
+
+DPI Control
+
+Implement:
+
+- Current density information.
+- Display scaling information.
+- Numeric DPI input where supported.
+- Presets.
+- Preview.
+- Validation.
+- Confirmation.
+- Backup original value.
+- Apply.
+- Verification.
+- Restore.
+- Reset.
+- Rollback.
+- Configuration history.
+
+Protect users against unusable configurations.
+
+Apply safeguards including:
+
+- Validated ranges.
+- Warning before applying.
+- Restore instructions.
+- Original value backup.
+- Verification.
+- Recovery workflow.
+
+Additional Display features
+
+- Fullscreen compatibility information.
+- Screen size information.
+- Display scaling.
+- UI scaling.
+- Immersive mode information.
+- Aspect ratio diagnostics.
+- Display backup.
+- Display restore.
+- Display compatibility.
+
+---
+
+11. PER-GAME GRAPHICS CENTER
+
+Create a graphics diagnostics and compatibility center.
+
+Display real information when accessible:
+
+- GPU name.
+- GPU manufacturer.
+- Graphics driver information.
+- OpenGL ES version.
+- Vulkan support.
+- Vulkan version where available.
+- Graphics API.
+- Renderer information where accessible.
+- ANGLE information where accessible.
+- Device graphics compatibility.
+- Supported configuration.
+- Unknown or unsupported state.
+
+Implement:
+
+- Graphics diagnostics.
+- Renderer information.
+- Graphics compatibility.
+- Driver information.
+- Supported graphics configuration.
+- Game-specific graphics notes.
+- Graphics profile documentation.
+- Backup records.
+- Reset.
+- Restore.
+
+Graphics driver or renderer selection must only use supported Android mechanisms.
+
+Do not claim the application can force a renderer inside every game.
+
+Do not modify game binaries, internal game configuration or game memory.
+
+---
+
+12. PER-GAME MONITORING CENTER
+
+Create a real monitoring interface.
+
+Monitoring information
+
+- CPU utilization where measurable.
+- CPU frequency where readable.
+- CPU core information.
+- RAM usage.
+- Available RAM.
+- Battery percentage.
+- Battery temperature.
+- Thermal status.
+- Current display refresh rate.
+- Session duration.
+- Supported sensor information.
+- Monitoring status.
+
+Monitoring functions
+
+- Start monitoring.
+- Stop monitoring.
+- Reset monitoring.
+- Session monitoring.
+- Monitoring history.
+- Export monitoring data.
+- Monitoring interval selection.
+- Graph visualization.
+- Performance warnings.
+- Sensor availability.
+- Unsupported state.
+
+Monitoring must be lifecycle-safe.
+
+Monitoring must not unnecessarily drain battery, create excessive background work or falsely claim that GPU utilization is available.
+
+---
+
+13. GAMING OVERLAY
+
+Create a native gaming overlay if supported.
+
+Use Android overlay permissions and appropriate service lifecycle handling.
+
+Overlay contents
+
+- Session timer.
+- Active profile.
+- CPU information.
+- RAM information.
+- Battery.
+- Thermal status.
+- Refresh rate.
+- Monitoring state.
+
+Overlay customization
+
+- Show.
+- Hide.
+- Drag.
+- Resize.
+- Compact mode.
+- Expanded mode.
+- Opacity.
+- Position.
+- Custom layout.
+- Custom accent.
+- Custom card style.
+- Game-specific overlay preference.
+
+Overlay safety
+
+- Explain permission requirements.
+- Request permissions only when necessary.
+- Provide permission status.
+- Provide recovery instructions.
+- Stop service when appropriate.
+- Respect application lifecycle.
+- Avoid intercepting game interaction.
+- Avoid excessive screen obstruction.
+- Provide fallback if unsupported.
+
+---
+
+14. GAMING TOOLS
+
+Implement supported Android gaming utilities.
+
+- Gaming Quick Panel.
+- Brightness adjustment.
+- Volume shortcut.
+- Orientation information.
+- DND integration when permitted.
+- Notification control information.
+- Session timer.
+- Fullscreen information.
+- Screenshot shortcut through supported Android APIs.
+- Screen recording shortcut through supported Android APIs.
+- Floating panel.
+- Overlay monitoring.
+- Game launcher.
+- Quick profile switching.
+
+Screenshot and recording features must use appropriate Android APIs and permissions, including user consent when required.
+
+Do not bypass system recording restrictions.
+
+---
+
+15. CPU CENTER
+
+Display real CPU information when available.
+
+- CPU model.
+- CPU architecture.
+- Core count.
+- Core information.
+- CPU utilization.
+- Frequency information.
+- Load diagnostics.
+- Temperature information if accessible.
+- Compatibility.
+- Monitoring.
+
+Implement:
+
+- CPU information.
+- CPU diagnostics.
+- CPU monitoring graph.
+- CPU usage history during active monitoring.
+- Frequency information.
+- Compatibility report.
+
+Do not claim CPU overclocking or CPU clock control unless a legitimate, supported API exists.
+
+Do not modify CPU voltage or kernel configuration.
+
+---
+
+16. GPU CENTER
+
+Display:
+
+- GPU name.
+- Graphics API.
+- OpenGL ES.
+- Vulkan.
+- Driver information.
+- Graphics compatibility.
+- Supported monitoring.
+- Renderer diagnostics.
+
+Implement:
+
+- GPU diagnostics.
+- Graphics compatibility.
+- API information.
+- Driver information.
+- Unsupported feature reporting.
+- Graphics profile documentation.
+
+GPU utilization must only be displayed if it can be measured reliably.
+
+---
+
+17. RAM CENTER
+
+Implement:
+
+- Total RAM.
+- Available RAM.
+- Memory usage.
+- Memory pressure.
+- Memory diagnostics.
+- Swap information where accessible.
+- App inventory.
+- Background diagnostics.
+- Monitoring graph.
+
+Use real Android memory information.
+
+Do not create fake RAM cleaning or aggressively terminate apps.
+
+Do not claim RAM has been optimized when only memory information has been refreshed.
+
+---
+
+18. STORAGE CENTER
+
+Display:
+
+- Total storage.
+- Used storage.
+- Available storage.
+- Storage percentage.
+- Storage diagnostics.
+- App storage information where accessible.
+
+Implement:
+
+- Storage monitoring.
+- Storage diagnostics.
+- Safe cleanup.
+- User-selected cleanup.
+- Cleanup confirmation.
+- Storage overview.
+
+Cleanup must only remove files explicitly selected by the user and accessible through legitimate APIs.
+
+Never automatically delete:
+
+- Application data.
+- Personal files.
+- System files.
+- Databases belonging to other applications.
+- Unselected files.
+
+---
+
+19. BATTERY CENTER
+
+Display:
+
+- Battery percentage.
+- Charging status.
+- Charging state.
+- Battery temperature.
+- Voltage if available.
+- Current if available.
+- Battery diagnostics.
+- Thermal status.
+- Battery monitoring.
+
+Implement:
+
+- Battery information.
+- Battery diagnostics.
+- Battery profile.
+- Battery warnings.
+- Charging information.
+- Thermal warnings.
+- Session monitoring.
+
+Do not claim accurate battery health information when Android does not provide reliable access.
+
+---
+
+20. THERMAL CENTER
+
+Display:
+
+- Device thermal status.
+- Thermal warnings.
+- Available thermal sensors.
+- Battery temperature.
+- CPU temperature where accessible.
+- GPU temperature only if available.
+- Thermal zone information when accessible.
+- Cooling status if available.
+
+Implement:
+
+- Thermal monitoring.
+- Thermal diagnostics.
+- Thermal warning.
+- Thermal status history.
+- Cooling recommendations.
+
+Never spoof temperature.
+
+Never disable thermal protection.
+
+Never force voltage or clocks.
+
+Never claim that the application can control every device thermal zone.
+
+---
+
+21. PERFORMANCE CENTER
+
+Create an advanced performance profile center.
+
+Profiles
+
+- Balanced.
+- Gaming.
+- Battery Saver.
+- Smart.
+- Custom.
+- Recommended.
+
+Functions
+
+- Profile switcher.
+- Profile editor.
+- Profile preview.
+- Profile apply.
+- Profile reset.
+- Profile backup.
+- Profile restore.
+- Profile history.
+- Profile compatibility.
+- Supported settings.
+- Unsupported settings.
+- Verification.
+- Rollback.
+
+Profiles must only modify verified and supported settings.
+
+Do not claim an FPS boost without reliable evidence.
+
+---
+
+22. SYSTEM TUNING CENTER
+
+Create a modular system diagnostics registry.
+
+Diagnostics
+
+- App Standby information.
+- Doze diagnostics.
+- Job Scheduler diagnostics.
+- Background activity diagnostics.
+- Memory diagnostics.
+- Multitasking diagnostics.
+- Storage diagnostics.
+- SQLite diagnostics.
+- Input latency information.
+- Keyboard-related diagnostics.
+- Logging diagnostics.
+- Debug property information.
+- OEM compatibility.
+- Device configuration compatibility.
+- System settings registry.
+
+Registry
+
+Each configuration must contain:
+
+- Unique ID.
+- Category.
+- Name.
+- Description.
+- Default value if known.
+- Current value if accessible.
+- Supported status.
+- Android compatibility.
+- Required permission.
+- Compatibility result.
+- Risk classification.
+- Operation status.
+- Verification result.
+- Backup information.
+- Restore information.
+- Rollback status.
+- Documentation.
+
+Do not automatically apply undocumented system properties.
+
+Do not change security configuration, bootloader, partitions, kernel, voltage or system-critical settings.
+
+---
+
+23. LOGGING & DIAGNOSTICS CENTER
+
+Create a Modular Trace Guard inspired diagnostics interface.
+
+Categories
+
+- Performance diagnostics.
+- Frame timing information.
+- Memory diagnostics.
+- Battery diagnostics.
+- Application diagnostics.
+- System compatibility.
+- Logging information.
+- Background diagnostics.
+
+Profiles
+
+- Default.
+- Lite.
+- Custom.
+
+Implement:
+
+- Diagnostics overview.
+- Compatibility information.
+- Sampling information where available.
+- Configuration status.
+- Validated registry.
+- Backup.
+- Restore.
+- Documented controls.
+- Operation history.
+
+Do not blindly copy experimental system overrides.
+
+Do not disable security or modify undocumented telemetry controls.
+
+---
+
+24. RECOMMENDED OPTIMIZATION ENGINE
+
+Create an offline recommendation engine.
+
+Use real device information:
+
+- Device model.
+- Manufacturer.
+- Android version.
+- CPU architecture.
+- RAM.
+- GPU information where available.
+- Display modes.
+- Thermal status.
+- Available memory.
+- Shizuku status.
+- Permissions.
+- Supported features.
+- Current configuration.
+- Compatibility.
+
+Recommendations
+
+- Balanced.
+- Gaming.
+- Battery Saver.
+- Custom.
+
+Recommendation information
+
+- Recommendation title.
+- Reason.
+- Compatibility.
+- Supported features.
+- Unsupported features.
+- Warnings.
+- Configuration preview.
+- Changes to be applied.
+- Original value backup.
+- Confirmation.
+- Apply.
+- Verification.
+- Rollback.
+- History.
+
+Do not generate a fake performance score.
+
+If compatibility scoring is used, explain the measurable indicators and limitations.
+
+---
+
+25. OEM COMPATIBILITY CENTER
+
+Support compatibility diagnostics for:
+
+- Realme.
+- OPPO.
+- Xiaomi.
+- Redmi.
+- POCO.
+- Samsung.
+- ASUS.
+- Vivo.
+- iQOO.
+- Motorola.
+- Google Pixel.
+- Other Android devices.
+
+Detect manufacturer and model using actual device information.
+
+Do not hardcode unsupported functionality based solely on a manufacturer name.
+
+Each feature must have a compatibility status:
+
+- Available.
+- Verified.
+- Unsupported.
+- Requires Permission.
+- Requires Shizuku.
+- Unknown.
+- Failed.
+
+---
+
+26. BACKGROUND MANAGEMENT CENTER
+
+Implement safe background diagnostics.
+
+- Application inventory.
+- Whitelist.
+- App Standby information.
+- Doze diagnostics.
+- Job Scheduler diagnostics.
+- Background activity diagnostics.
+- User-selected app management.
+- Background configuration information.
+- Compatibility.
+- Confirmation.
+- Restore.
+- Reset.
+
+Do not force-stop all applications.
+
+Do not terminate foreground games.
+
+Protect system applications and essential services.
+
+Do not interfere with accessibility services or emergency functionality.
+
+---
+
+27. SHIZUKU INTEGRATION CENTER
+
+Implement genuine Shizuku integration.
+
+Shizuku is optional.
+
+All core functions that do not require privileged access must remain usable without Shizuku.
+
+Shizuku interface
+
+Display:
+
+- Shizuku installed status where detectable.
+- Shizuku service status.
+- Connection status.
+- Version if available.
+- Binder connection status.
+- Permission status.
+- Connection errors.
+- Retry.
+- Reconnect.
+- Disconnect state.
+- Permission revoked state.
+- Operation results.
+- Error logs.
+
+Shizuku implementation
+
+Use the official Shizuku API and a compatible implementation.
+
+Implement:
+
+- Binder connection.
+- Service lifecycle.
+- Permission request.
+- Permission handling.
+- Connection listener.
+- Disconnection handling.
+- Retry.
+- Operation registry.
+- Validation.
+- Compatibility.
+- Timeout.
+- Result handling.
+- Verification.
+- Error logging.
+- Backup.
+- Restore.
+
+Only allow predefined validated operations.
+
+Never execute arbitrary shell commands directly from user-entered strings.
+
+Never claim an operation succeeded if it failed.
+
+Provide an operation result for each supported action.
+
+---
+
+28. PER-GAME CUSTOMIZATION STUDIO
+
+Implement a local customization center for every game.
+
+Customization
+
+- Game accent color.
+- Gradient.
+- Background image.
+- Custom banner.
+- Custom icon.
+- Custom cover.
+- Card style.
+- Card opacity.
+- Border style.
+- Glow effect.
+- Blur effect.
+- Layout selection.
+- Compact layout.
+- Expanded layout.
+- Section ordering.
+- Section visibility.
+- Custom profile icon.
+- Profile color.
+- Profile name.
+- Profile description.
+- Custom quick actions.
+- Custom monitoring card.
+- Custom overlay layout.
+- Custom notes.
+- Tags.
+- Custom category.
+
+Customization functions
+
+- Preview.
+- Apply.
+- Save.
+- Reset.
+- Export.
+- Restore.
+
+All customization must be stored locally.
+
+Customization must not modify the original application assets.
+
+---
+
+29. GAME SESSION HISTORY
+
+Implement reliable local session tracking where possible.
+
+Store:
+
+- Game name.
+- Package name.
+- Session start.
+- Session end.
+- Session duration.
+- Active profile.
+- Monitoring summary if available.
+- Configuration changes.
+- Session notes.
+
+Implement:
+
+- History list.
+- Search.
+- Filter.
+- Export.
+- Clear history.
+- Confirmation.
+- Privacy controls.
+
+Do not claim precise session detection if the Android environment prevents reliable tracking.
+
+Provide manual session tracking as a fallback.
+
+---
+
+30. SETTINGS REGISTRY
+
+Create a centralized settings registry.
+
+Each setting must include:
+
+setting_id
+game_package
+category
+name
+description
+original_value
+selected_value
+current_value
+supported_status
+required_permission
+android_compatibility
+device_compatibility
+risk_level
+validation_result
+operation_status
+verification_result
+last_modified
+restore_status
+history
+
+Use an appropriate data model.
+
+Not every field must be populated when unavailable.
+
+Never invent a value.
+
+---
+
+31. BACKUP & RESTORE CENTER
+
+Implement a local versioned JSON backup system.
+
+Backup contents
+
+- Application version.
+- Backup timestamp.
+- Device compatibility metadata.
+- Game library.
+- Favorites.
+- Pinned games.
+- Hidden games.
+- Groups.
+- Tags.
+- Custom labels.
+- Custom game profiles.
+- Game customization.
+- Display configuration records.
+- DPI records.
+- Resolution records.
+- Refresh rate records.
+- Graphics preferences.
+- Overlay preferences.
+- Monitoring preferences.
+- Original values when available.
+- Configuration history.
+- UI preferences.
+- Theme.
+- Accent.
+- Font preference.
+- Banner.
+- Whitelist.
+- Profile history.
+
+Backup functions
+
+- Export.
+- Import.
+- Preview.
+- Validate.
+- Detect conflicts.
+- Compatibility check.
+- Restore.
+- Verification.
+- Rollback.
+- Local storage.
+
+Use Storage Access Framework.
+
+Do not assume arbitrary filesystem access.
+
+Backup and restore must not overwrite system configuration without appropriate validation and confirmation.
+
+---
+
+32. PERFORMANCE DIAGNOSTICS REPORT
+
+Create an offline report generator.
+
+Report information:
+
+- Device model.
+- Manufacturer.
+- Android version.
+- API level.
+- CPU.
+- RAM.
+- GPU if available.
+- Display.
+- Supported refresh rates.
+- Battery.
+- Thermal status.
+- Shizuku status.
+- Permissions.
+- Supported features.
+- Unsupported features.
+- Current profile.
+- Applied settings.
+- Failed operations.
+- Compatibility warnings.
+- Monitoring results.
+
+Implement:
+
+- Report preview.
+- Export as text.
+- Export locally.
+- Share using Android share mechanisms.
+
+Do not include unnecessary personal information.
+
+---
+
+33. NOTIFICATION CENTER
+
+Implement Android notifications where permitted.
+
+Notification categories:
+
+- Profile applied.
+- Profile restored.
+- Shizuku disconnected.
+- Operation failed.
+- Compatibility warning.
+- Thermal warning.
+- Monitoring status.
+
+Implement:
+
+- Notification permission handling.
+- Notification channels.
+- Notification settings.
+- Permission recovery.
+
+Do not send excessive notifications.
+
+---
+
+34. UI CUSTOMIZATION CENTER
+
+Create a complete appearance customization page.
+
+Theme
+
+- AMOLED Black.
+- Lavender Gray.
+- Purple.
+- Silver.
+- Custom Accent.
+- Dark Theme.
+- AMOLED Theme.
+- Material 3.
+
+Custom colors
+
+- Primary.
+- Secondary.
+- Accent.
+- Background.
+- Surface.
+- Card.
+- Border.
+- Text.
+
+Support validated hex color input.
+
+Layout
+
+- Corner radius: 0–32.
+- Small text.
+- Default text.
+- Large text.
+- Larger text.
+- Icon size.
+- Custom font.
+- Compatible TTF/OTF import.
+- Banner image.
+- Crop.
+- Move.
+- Zoom.
+- Rotate.
+- Preview.
+- Apply.
+- Reset.
+
+Navigation customization
+
+- Pill.
+- Capsule.
+- Indicator.
+- Material Bar.
+- Left.
+- Center.
+- Right.
+- Navigation size.
+- Icon size.
+- Text size.
+
+Liquid Glass customization
+
+- Frosted glass.
+- Blur.
+- Surface opacity.
+- Saturation.
+- Visual effects.
+- Refraction-style effects limited to UI rendering.
+
+Additional UI customization
+
+- Toast customization.
+- Bottom navigation customization.
+- UI backup.
+- UI restore.
+- UI reset.
+
+All customization must remain cosmetic unless explicitly connected to a supported functional setting.
+
+---
+
+35. ABOUT PAGE
+
+Display:
+
+SYMPHINE GAME SPACE
+
+Developer: Reo Moser
+
+Version: 1.0.0
+
+Package: com.symphine.gamespace
+
+Include:
+
+- Application description.
+- Privacy information.
+- Offline functionality.
+- License information.
+- Open-source dependency information.
+- Supported Android versions.
+- Changelog.
+- Compatibility information.
+
+---
+
+36. PRIVACY & SECURITY
+
+The application must be offline-first.
+
+Do not require:
+
+- Account registration.
+- Cloud login.
+- Advertising SDKs.
+- Analytics SDKs.
+- Remote configuration.
+- Mandatory internet access.
+
+Avoid unnecessary INTERNET permission.
+
+If optional network-related permissions are included, explain their purpose and make them genuinely optional.
+
+Store configuration locally.
+
+Provide local data deletion.
+
+Use safe file handling.
+
+Validate imported files.
+
+Protect against malformed JSON.
+
+Do not execute imported content.
+
+Do not treat imported backups as executable commands.
+
+---
+
+37. PERMISSION MANAGEMENT
+
+Create a centralized permission manager.
+
+Manage permissions and access where required:
+
+- Package visibility.
+- Overlay permission.
+- Notification permission.
+- DND access.
+- Screen recording consent.
+- Storage through Storage Access Framework.
+- Shizuku permission.
+- Other permissions required by actual implemented functionality.
+
+For each permission:
+
+- Explain why it is needed.
+- Show status.
+- Request only when needed.
+- Provide recovery instructions.
+- Provide fallback.
+- Never claim access is granted without verification.
+
+---
+
+38. ERROR HANDLING & OPERATION VERIFICATION
+
+Implement a unified operation system.
+
+Each system operation should follow:
+
+1. Detect capability.
+2. Validate input.
+3. Check compatibility.
+4. Check permissions.
+5. Record original state when accessible.
+6. Display preview.
+7. Request confirmation.
+8. Execute supported operation.
+9. Read back actual state.
+10. Verify result.
+11. Record operation history.
+12. Report success or failure.
+13. Rollback if appropriate.
+
+Every operation must support meaningful states.
+
+Available
+Verified
+Unsupported
+Requires Permission
+Requires Shizuku
+Unknown
+Pending
+Applying
+Applied
+Failed
+Restoring
+Restored
+Rollback Failed
+
+Do not display Verified when verification has not occurred.
+
+Do not display Applied if the operation was merely requested.
+
+Do not hide errors.
+
+---
+
+39. RECOMMENDED PROFILE ENGINE
+
+Create an intelligent offline profile recommendation system.
+
+Analyze:
+
+- Device manufacturer.
+- Device model.
+- Android version.
+- CPU architecture.
+- RAM.
+- GPU information.
+- Supported display modes.
+- Thermal status.
+- Available memory.
+- Permissions.
+- Shizuku.
+- Compatibility.
+- Current configuration.
+
+Generate recommendations:
+
+- Balanced.
+- Gaming.
+- Battery Saver.
+- Custom.
+
+Each recommendation must provide:
+
+- Explanation.
+- Supported changes.
+- Unsupported changes.
+- Compatibility.
+- Warning.
+- Preview.
+- Confirmation.
+- Backup.
+- Apply.
+- Verification.
+- Rollback.
+- History.
+
+Do not create a fake benchmark or FPS prediction.
+
+---
+
+40. APPLICATION PERFORMANCE
+
+Optimize the application itself.
+
+Requirements:
+
+- Lifecycle-safe monitoring.
+- Efficient Compose rendering.
+- Avoid unnecessary recompositions.
+- Avoid excessive polling.
+- Use appropriate coroutine dispatchers.
+- Avoid blocking the main thread.
+- Efficient game scanning.
+- Efficient database operations.
+- Efficient monitoring.
+- Battery-conscious background behavior.
+- Proper service lifecycle.
+- Proper permission lifecycle.
+- Crash handling.
+- Error logging.
+
+Do not run continuous monitoring without user consent or an appropriate active state.
+
+---
+
+41. BUILD & DELIVERY REQUIREMENTS
+
+The implementation must be delivered as a real Android project.
+
+Required project files:
+
+- AndroidManifest.xml.
+- Kotlin source files.
+- Gradle project configuration.
+- Gradle Kotlin DSL build scripts.
+- Dependency configuration.
+- Compose UI.
+- ViewModels.
+- Repository implementations.
+- System API integrations.
+- Shizuku integration.
+- Monitoring.
+- Data persistence.
+- Backup and restore.
+- Permission handling.
+- Compatibility layer.
+- README.
+- Changelog.
+- Build instructions.
+
+Build verification
+
+Perform the following when the environment supports it:
+
+1. Verify project structure.
+2. Resolve Gradle dependencies.
+3. Verify Kotlin compilation.
+4. Verify AndroidManifest.
+5. Verify permissions.
+6. Verify package name.
+7. Verify application version.
+8. Verify navigation.
+9. Verify database initialization.
+10. Verify DataStore.
+11. Verify game detection.
+12. Verify profile persistence.
+13. Verify backup and restore.
+14. Verify monitoring.
+15. Verify Shizuku integration.
+16. Verify permission handling.
+17. Verify error handling.
+18. Compile debug APK.
+19. Compile release APK if possible.
+20. Verify APK output.
+21. Verify APK installation compatibility where test environment allows.
+
+APK requirements
+
+Application:
+
+Name: SYMPHINE GAME SPACE
+Package: com.symphine.gamespace
+Version: 1.0.0
+Minimum Android: 10
+Target: Android 10–16+
+Architecture: Native Kotlin
+UI: Jetpack Compose
+Mode: Offline-first
+Root: Not required for core features
+Shizuku: Optional
+
+Generate an installable APK when the environment supports Android compilation.
+
+Do not claim APK compilation succeeded without verifying the artifact.
+
+---
+
+42. MOBILE BUILD WORKFLOW
+
+The project should be structured so it can also be built on an Android phone without requiring a desktop computer when an appropriate mobile development environment is available.
+
+Provide an alternative mobile workflow using compatible Android development tools, such as:
+
+- AndroidIDE if compatible with the current environment.
+- AIDE where compatible.
+- Other legitimate Android build environments.
+
+Do not assume every mobile IDE supports every Gradle, Kotlin or Android SDK version.
+
+Provide:
+
+- Project import instructions.
+- Gradle sync instructions.
+- Dependency resolution instructions.
+- Build instructions.
+- APK location.
+- APK installation instructions.
+- Build troubleshooting.
+
+The application must not depend on the developer having a PC to use the finished APK.
+
+---
+
+43. SHIZUKU SETUP GUIDE
+
+Provide a complete user guide.
+
+Include:
+
+1. Install Shizuku from its official distribution source.
+2. Start Shizuku using a supported method.
+3. Confirm Shizuku service status.
+4. Open SYMPHINE GAME SPACE.
+5. Open Shizuku Integration Center.
+6. Request permission.
+7. Grant access.
+8. Confirm the connection.
+9. Run a supported operation.
+10. Verify the result.
+11. Disconnect or revoke permission when desired.
+
+Provide separate explanations for supported wireless debugging and device-specific methods.
+
+Do not imply Shizuku provides root access.
+
+Do not claim every Android device supports every Shizuku operation.
+
+---
+
+44. README DOCUMENTATION
+
+Generate a detailed README containing:
+
+- Project overview.
+- Application features.
+- Project architecture.
+- Android compatibility.
+- Supported features.
+- Unsupported features.
+- Permission requirements.
+- Shizuku setup.
+- Build instructions.
+- Mobile build instructions.
+- Installation instructions.
+- Backup instructions.
+- Restore instructions.
+- Troubleshooting.
+- Compatibility limitations.
+- Privacy policy.
+- Changelog.
+- License information.
+
+---
+
+45. VERSION 1.0.0 PRIORITY ROADMAP
+
+Prioritize implementation in this order.
+
+Priority A — Core application
+
+- Native application.
+- Navigation.
+- Premium UI.
+- Device information.
+- Device dashboard.
+- Local persistence.
+- Settings.
+- Error handling.
+
+Priority B — Game Library
+
+- Installed game detection.
+- Game scanner.
+- Game launcher.
+- Search.
+- Sorting.
+- Favorites.
+- Pin.
+- Hide.
+- Custom groups.
+- Game Detail Center.
+- Local customization.
+- Game profiles.
+
+Priority C — Real monitoring
+
+- RAM.
+- Battery.
+- Thermal.
+- Storage.
+- CPU information.
+- Display information.
+- Session monitoring where reliable.
+
+Priority D — Display Center
+
+- Refresh rate diagnostics.
+- Supported refresh modes.
+- Resolution diagnostics.
+- Density information.
+- Supported DPI control where safe.
+- Backup.
+- Restore.
+- Verification.
+
+Priority E — Performance
+
+- Profile Engine.
+- Balanced.
+- Gaming.
+- Battery Saver.
+- Smart.
+- Custom.
+- Recommended profile.
+- Configuration history.
+
+Priority F — Shizuku
+
+- Connection.
+- Permission.
+- Predefined supported operations.
+- Operation verification.
+- Error handling.
+- Backup.
+- Restore.
+
+Priority G — Advanced Game Library
+
+- Per-game profile.
+- Per-game display.
+- Per-game customization.
+- Per-game monitoring.
+- Per-game compatibility.
+- Per-game configuration backup.
+
+Priority H — Advanced features
+
+- Gaming overlay.
+- Gaming tools.
+- Diagnostics.
+- Logging information.
+- Background management.
+- Performance report.
+- Advanced customization.
+
+Do not sacrifice application stability to implement lower-priority features.
+
+---
+
+46. ACCEPTANCE TESTS
+
+The application must pass the following tests when supported by the build and device environment.
+
+Core
+
+- Application launches.
+- Navigation works.
+- UI state persists.
+- Theme persists.
+- No fatal crash during normal navigation.
+
+Game Library
+
+- Installed applications are detected appropriately.
+- Game search works.
+- Sorting works.
+- Game cards display actual icons.
+- Launch action works for launchable games.
+- Favorites persist.
+- Hidden games persist.
+- Game customization persists.
+- Game profile persists.
+- Individual Game Detail Center works.
+
+Monitoring
+
+- Monitoring values are not random.
+- Unsupported sensors are identified.
+- Monitoring stops correctly.
+- Monitoring lifecycle is managed correctly.
+- Battery information uses actual Android data.
+
+Display
+
+- Supported modes are detected.
+- Unsupported modes are not presented as supported.
+- Operation result is verified.
+- Restore behavior is documented.
+
+Profiles
+
+- Profiles persist.
+- Profile preview works.
+- Supported settings are identified.
+- Failed operations are reported.
+- Rollback is handled appropriately.
+
+Shizuku
+
+- Connection state is accurately displayed.
+- Permission handling works.
+- Disconnect is handled.
+- Unsupported operations are rejected.
+- Failed operations are not reported as successful.
+
+Backup
+
+- JSON backup is generated.
+- Backup is validated.
+- Import preview works.
+- Restore is validated.
+- Invalid files are rejected.
+- Failed restore does not falsely report success.
+
+UI
+
+- Loading states work.
+- Empty states work.
+- Unsupported states work.
+- Permission states work.
+- Errors are visible.
+- Buttons are functional.
+- Responsive layouts are usable.
+
+---
+
+47. FINAL OUTPUT
+
+The developer or AI coding agent must deliver the actual implementation, not a theoretical explanation.
+
+Deliver:
+
+1. Complete native Android project.
+2. Kotlin source code.
+3. Gradle Kotlin DSL configuration.
+4. AndroidManifest.
+5. Compose UI.
+6. Repository layer.
+7. ViewModel layer.
+8. System API integrations.
+9. Game Library.
+10. Game Detail Center.
+11. Performance Engine.
+12. Display Center.
+13. Monitoring.
+14. Shizuku integration.
+15. Backup and Restore.
+16. Diagnostics.
+17. Permission management.
+18. Compatibility layer.
+19. README.
+20. Changelog.
+21. Build instructions.
+22. Mobile build instructions.
+23. APK installation instructions.
+24. Shizuku setup instructions.
+25. Compatibility documentation.
+26. Debug APK.
+27. Release APK if the environment allows.
+28. Build verification report.
+29. Known limitations.
+
+If the environment supports compiling Android applications, compile and provide the APK.
+
+If the environment does not support Android compilation, provide the complete project source and clear instructions for building the APK using an appropriate Android development environment.
+
+Never invent a download link.
+
+Never claim a build succeeded unless the APK has actually been generated and verified.
+
+Never replace the native application with HTML, WebView, screenshots, mockups or a conceptual description.
+
+---
+
+FINAL DIRECTIVE
+
+Build SYMPHINE GAME SPACE as a genuine native Android Gaming Center.
+
+The Advanced Game Library must be the application's primary feature and must provide an individual Game Detail Center for every supported game.
+
+Prioritize real Android functionality, modern Kotlin architecture, premium Liquid Glass UI, device compatibility, offline functionality, safe system configuration, real monitoring, reversible changes, Shizuku integration, user-controlled customization, verification, stability and an actual installable APK.
+
+Do not stop at planning. Do not stop at UI. Do not stop at generating source snippets. Implement, validate, compile and deliver the actual application wherever the environment permits.
+
+PROJECT: SYMPHINE GAME SPACE
+DEVELOPER: REO MOSER
+VERSION: 1.0.0
+PACKAGE: com.symphine.gamespace
+PLATFORM: ANDROID NATIVE
+TECHNOLOGY: KOTLIN + JETPACK COMPOSE + MATERIAL 3
+MODE: OFFLINE-FIRST
+ROOT: NOT REQUIRED FOR CORE FEATURES
+SHIZUKU: OPTIONAL
+PRIMARY FEATURE: ADVANCED GAME LIBRARY & PER-GAME DETAIL CENTER
+
+#!/system/bin/sh
+# ============================================================
+# REOSHERLY GRAPHICS VVIP V5.2 — SYMPHINE EDITION
+# Upgraded architecture, bug-fixed menu/backup, ART compiler & proportional scaling.
+# Developer: ReoSherly / Reo Moser | TikTok: @symphine_elyra
+# Platform: Android / Brevent / Shizuku Shell (UID 2000 & Root)
+# ============================================================
+
+APP_NAME="REOSHERLY GRAPHICS VVIP"
+VERSION="5.2-symphine"
+DEVELOPER="ReoSherly"
+TIKTOK="@symphine_elyra"
+EXPIRY_DATE="2026-11-28"
+
+TARGET_DPI=430
+ANIMATION_SCALE=0.5
+BASE="/data/local/tmp/reosherly_vvip"
+BACKUP="$BASE/backup"
+LOG="$BASE/activity.log"
+INSTALL_DATE="$BASE/install_date"
+DPI_BACKUP="$BASE/density_backup"
+RES_BACKUP="$BASE/resolution_backup"
+
+mkdir -p "$BASE" 2>/dev/null
+SUCCESS=0
+FAILED=0
+UNSUPPORTED=0
+
+line() { echo "===================================================="; }
+header() { echo ""; line; echo "       $1"; line; }
+have_cmd() { command -v "$1" >/dev/null 2>&1; }
+log_message() { printf '[%s] %s\n' "$(date '+%F %T' 2>/dev/null)" "$*" >> "$LOG" 2>/dev/null; }
+notify() {
+    if have_cmd cmd; then
+        cmd notification post -S bigtext -t "REOSHERLY VVIP" "symphine" "$1" >/dev/null 2>&1
+    fi
+}
+success() { echo "[SUCCESS] $1"; }
+failed() { echo "[FAILED] $1"; }
+unsupported() { echo "[SKIPPED] $1"; }
+warn() { echo "[WARNING] $1"; }
+
+is_root() {
+    [ "$(id -u 2>/dev/null)" = "0" ]
+}
+
+check_expiry() {
+    TODAY="$(date '+%Y%m%d' 2>/dev/null)"
+    EXPIRY="$(echo "$EXPIRY_DATE" | tr -d '-')"
+    case "$TODAY" in ''|*[!0-9]*) echo "Tanggal sistem tidak valid."; return 1 ;; esac
+    case "$EXPIRY" in ''|*[!0-9]*) echo "Tanggal expiry tidak valid."; return 1 ;; esac
+    if [ "$TODAY" -gt "$EXPIRY" ]; then
+        header "LICENSE EXPIRED"
+        echo "Expired: $EXPIRY_DATE"
+        return 1
+    fi
+    return 0
+}
+
+# -------------------- DEVICE & BACKEND INFORMATION --------------------
+device_info() {
+    header "DEVICE INFORMATION"
+    echo "Brand        : $(getprop ro.product.brand)"
+    echo "Manufacturer : $(getprop ro.product.manufacturer)"
+    echo "Model        : $(getprop ro.product.model)"
+    echo "Device       : $(getprop ro.product.device)"
+    echo "Android      : $(getprop ro.build.version.release)"
+    echo "SDK          : $(getprop ro.build.version.sdk)"
+    echo "Build        : $(getprop ro.build.display.id)"
+    echo "Architecture : $(uname -m 2>/dev/null)"
+    echo "CPU ABI      : $(getprop ro.product.cpu.abi)"
+    echo "Kernel       : $(uname -r 2>/dev/null)"
+    echo "CPU Cores    : $(grep -c '^processor' /proc/cpuinfo 2>/dev/null)"
+    if is_root; then echo "Privilege    : ROOT (UID 0)"; else echo "Privilege    : ADB / SHIZUKU SHELL (UID $(id -u 2>/dev/null))"; fi
+    grep -E 'MemTotal|MemAvailable|MemFree' /proc/meminfo 2>/dev/null
+}
+
+display_info() {
+    header "DISPLAY INFORMATION"
+    echo "Size:"; wm size 2>/dev/null
+    echo "Density:"; wm density 2>/dev/null
+    echo "OpenGL: $(getprop ro.opengles.version)"
+    echo "EGL: $(getprop ro.hardware.egl)"
+    echo "HWUI Renderer: $(getprop debug.hwui.renderer)"
+    dumpsys display 2>/dev/null | grep -m 12 -E 'supportedModes|refreshRate|DisplayDeviceInfo'
+}
+
+cpu_info() {
+    header "CPU INFORMATION"
+    echo "Architecture: $(uname -m 2>/dev/null)"
+    echo "Cores: $(grep -c '^processor' /proc/cpuinfo 2>/dev/null)"
+    grep -m 8 -E 'Hardware|model name|Processor|CPU architecture' /proc/cpuinfo 2>/dev/null
+    FREQ="$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq 2>/dev/null)"
+    GOV="$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor 2>/dev/null)"
+    [ -n "$FREQ" ] && echo "CPU0 Frequency: ${FREQ} kHz" || echo "CPU0 Frequency: Restricted by SELinux"
+    [ -n "$GOV" ] && echo "CPU0 Governor : $GOV" || echo "CPU0 Governor : Restricted by SELinux"
+}
+
+angle_status() {
+    header "ANGLE & GRAPHICS BACKEND STATUS"
+    echo "Packages : $(settings get global angle_gl_driver_selection_pkgs 2>/dev/null)"
+    echo "Drivers  : $(settings get global angle_gl_driver_selection_values 2>/dev/null)"
+    echo "Feature  : $(getprop debug.angle.feature_overrides_enabled 2>/dev/null)"
+    if pm list packages 2>/dev/null | grep -q 'angle'; then
+        echo "ANGLE Pkg: Installed ($(pm list packages 2>/dev/null | grep 'angle' | head -n 1))"
+    else
+        echo "ANGLE Pkg: System built-in or not exposed as separate APK"
+    fi
+    echo "Catatan  : Pemilihan driver bergantung pada dukungan GPU & ROM."
+}
+
+gpu_info() {
+    header "GPU INFORMATION"
+    echo "EGL    : $(getprop ro.hardware.egl)"
+    echo "Vulkan : $(getprop ro.hardware.vulkan)"
+    echo "OpenGL : $(getprop ro.opengles.version)"
+    getprop 2>/dev/null | grep -iE 'gpu|egl|vulkan|adreno|mali' | head -n 20
+    angle_status
+}
+
+battery_info() {
+    header "BATTERY INFORMATION"
+    echo "Capacity: $(cat /sys/class/power_supply/battery/capacity 2>/dev/null) %"
+    echo "Status: $(cat /sys/class/power_supply/battery/status 2>/dev/null)"
+    TEMP="$(cat /sys/class/power_supply/battery/temp 2>/dev/null)"
+    case "$TEMP" in ''|*[!0-9]*) echo "Temperature: Unavailable" ;; *) awk -v t="$TEMP" 'BEGIN {printf "Temperature: %.1f C\n",t/10}' ;; esac
+    echo "Voltage (microvolt): $(cat /sys/class/power_supply/battery/voltage_now 2>/dev/null)"
+}
+
+performance_monitor() {
+    header "PERFORMANCE MONITOR"
+    echo "Uptime:"; uptime 2>/dev/null
+    echo "Load:"; cat /proc/loadavg 2>/dev/null
+    echo "RAM:"; grep -E 'MemTotal|MemAvailable|MemFree|Cached' /proc/meminfo 2>/dev/null
+    echo "Battery: $(cat /sys/class/power_supply/battery/capacity 2>/dev/null)%"
+    TEMP="$(cat /sys/class/power_supply/battery/temp 2>/dev/null)"
+    case "$TEMP" in ''|*[!0-9]*) echo "Battery temp: Unavailable" ;; *) awk -v t="$TEMP" 'BEGIN {printf "Battery temp: %.1f C\n",t/10}' ;; esac
+    echo "Thermal service (read-only):"
+    dumpsys thermalservice 2>/dev/null | head -n 20
+}
+
+network_info() {
+    header "NETWORK INFORMATION"
+    echo "IP:"; ip addr show 2>/dev/null | grep 'inet '
+    echo "DNS1: $(getprop net.dns1)"; echo "DNS2: $(getprop net.dns2)"
+    dumpsys connectivity 2>/dev/null | grep -E 'CONNECTED|VALIDATED' | head -n 10
+    if have_cmd ping; then ping -c 1 -W 2 1.1.1.1 2>/dev/null | tail -n 2; fi
+}
+
+storage_manager() {
+    header "STORAGE MANAGER"
+    df -h /data 2>/dev/null
+    echo "Script storage:"; du -sh "$BASE" 2>/dev/null
+    echo "Files:"; find "$BASE" -type f 2>/dev/null
+}
+
+device_check() {
+    header "UNIFIED DEVICE CHECK — V5.2"
+    device_info; cpu_info; gpu_info; display_info
+    battery_info; performance_monitor; network_info; storage_manager
+    header "INSTALLED GAME CHECK"
+    for P in com.dts.freefireth com.dts.freefiremax; do
+        if pm path "$P" 2>/dev/null | grep -q 'package:'; then
+            VER="$(dumpsys package "$P" 2>/dev/null | awk -F= '/versionName/{print $2; exit}')"
+            echo "$P : INSTALLED (v${VER:-unknown})"
+        else
+            echo "$P : NOT INSTALLED"
+        fi
+    done
+    log_message "Unified device check"
+}
+
+# -------------------- ATOMIC BACKUP / RESTORE --------------------
+save_display_backups() {
+    if have_cmd wm; then
+        if [ ! -f "$DPI_BACKUP" ]; then
+            wm density 2>/dev/null > "$DPI_BACKUP.tmp" && mv "$DPI_BACKUP.tmp" "$DPI_BACKUP"
+        fi
+        if [ ! -f "$RES_BACKUP" ]; then
+            wm size 2>/dev/null > "$RES_BACKUP.tmp" && mv "$RES_BACKUP.tmp" "$RES_BACKUP"
+        fi
+    fi
+}
+
+backup_get() {
+    [ -f "$BACKUP" ] || return 1
+    awk -F'|' -v n="$1" -v k="$2" '$1==n && $2==k {sub(/^[^|]*\|[^|]*\|/,""); print; exit}' "$BACKUP" 2>/dev/null
+}
+
+backup_setting() {
+    NS="$1"; KEY="$2"
+    VALUE="$(settings get "$NS" "$KEY" 2>/dev/null)"
+    [ -n "$VALUE" ] || VALUE="null"
+    printf '%s|%s|%s\n' "$NS" "$KEY" "$VALUE" >> "$TEMP"
+}
+
+create_backup() {
+    header "CREATE BACKUP"
+    save_display_backups
+    if [ -f "$BACKUP" ]; then
+        echo "Backup lama tersedia; tidak ditimpa."
+        return 0
+    fi
+    TEMP="$BACKUP.tmp"; : > "$TEMP" || return 1
+    for KEY in angle_gl_driver_selection_pkgs angle_gl_driver_selection_values app_standby_enabled app_restriction_enabled background_check_enabled low_power cached_apps_freezer peak_refresh_rate min_refresh_rate window_animation_scale transition_animation_scale animator_duration_scale; do
+        case "$KEY" in peak_refresh_rate|min_refresh_rate) NS="system" ;; *) NS="global" ;; esac
+        backup_setting "$NS" "$KEY"
+    done
+    VALUE="$(getprop debug.angle.feature_overrides_enabled 2>/dev/null)"
+    [ -n "$VALUE" ] || VALUE="null"
+    printf 'PROP|debug.angle.feature_overrides_enabled|%s\n' "$VALUE" >> "$TEMP"
+    if mv "$TEMP" "$BACKUP"; then
+        success "Backup created"
+        log_message "Backup created"
+        return 0
+    fi
+    rm -f "$TEMP"; failed "Backup creation"; return 1
+}
+
+restore_key() {
+    NS="$1"; KEY="$2"; VALUE="$(backup_get "$NS" "$KEY")"
+    if ! grep -Fq "$NS|$KEY|" "$BACKUP" 2>/dev/null; then return 0; fi
+    if [ "$VALUE" = "null" ]; then
+        settings delete "$NS" "$KEY" >/dev/null 2>&1
+    else
+        settings put "$NS" "$KEY" "$VALUE" >/dev/null 2>&1
+    fi
+    CURRENT="$(settings get "$NS" "$KEY" 2>/dev/null)"
+    if [ "$VALUE" = "null" ] && { [ -z "$CURRENT" ] || [ "$CURRENT" = "null" ]; }; then
+        success "Restored $KEY"; return 0
+    fi
+    if [ "$CURRENT" = "$VALUE" ]; then
+        success "Restored $KEY"; return 0
+    fi
+    failed "Restore $KEY"; return 1
+}
+
+restore_default() {
+    header "RESTORE ALL BACKUP SETTINGS"
+    FAIL=0
+    if [ -f "$BACKUP" ]; then
+        for ITEM in \
+            "global angle_gl_driver_selection_pkgs" \
+            "global angle_gl_driver_selection_values" \
+            "global app_standby_enabled" \
+            "global app_restriction_enabled" \
+            "global background_check_enabled" \
+            "global low_power" \
+            "global cached_apps_freezer" \
+            "system peak_refresh_rate" \
+            "system min_refresh_rate" \
+            "global window_animation_scale" \
+            "global transition_animation_scale" \
+            "global animator_duration_scale"; do
+            set -- $ITEM; restore_key "$1" "$2" || FAIL=1
+        done
+        PROP_VAL="$(backup_get PROP debug.angle.feature_overrides_enabled)"
+        if grep -Fq 'PROP|debug.angle.feature_overrides_enabled|' "$BACKUP"; then
+            if [ "$PROP_VAL" = "null" ]; then
+                unsupported "Properti ANGLE kosong (tidak perlu diubah)"
+            elif have_cmd setprop && is_root; then
+                setprop debug.angle.feature_overrides_enabled "$PROP_VAL" >/dev/null 2>&1
+                [ "$(getprop debug.angle.feature_overrides_enabled)" = "$PROP_VAL" ] && success "Restored ANGLE property" || { failed "ANGLE property"; FAIL=1; }
+            else
+                unsupported "setprop (butuh akses root untuk properti debug.*)"
+            fi
+        fi
+    else
+        warn "Settings backup file not found; skipping settings restore."
+    fi
+
+    if [ -f "$RES_BACKUP" ] && have_cmd wm; then
+        ORIGINAL_RES="$(sed -n 's/.*Override size: //p' "$RES_BACKUP" | head -n 1)"
+        if [ -n "$ORIGINAL_RES" ]; then
+            wm size "$ORIGINAL_RES" >/dev/null 2>&1
+        else
+            wm size reset >/dev/null 2>&1
+        fi
+        success "Resolution restored to original state"
+    fi
+
+    if [ -f "$DPI_BACKUP" ] && have_cmd wm; then
+        ORIGINAL_DPI="$(sed -n 's/.*Override density: //p' "$DPI_BACKUP" | head -n 1)"
+        if [ -n "$ORIGINAL_DPI" ]; then
+            wm density "$ORIGINAL_DPI" >/dev/null 2>&1
+        else
+            wm density reset >/dev/null 2>&1
+        fi
+        success "DPI restored to original state"
+    fi
+
+    if [ "$FAIL" -eq 0 ]; then
+        success "Full restore completed"
+        log_message "Full restore completed"
+        notify "Restore completed"
+        return 0
+    fi
+    failed "Some settings could not be restored"; return 1
+}
+
+apply_setting() {
+    NS="$1"; KEY="$2"; VALUE="$3"; LABEL="$4"
+    if ! have_cmd settings; then unsupported "$LABEL"; UNSUPPORTED=$((UNSUPPORTED+1)); return 1; fi
+    settings put "$NS" "$KEY" "$VALUE" >/dev/null 2>&1
+    CURRENT="$(settings get "$NS" "$KEY" 2>/dev/null)"
+    if [ "$CURRENT" = "$VALUE" ]; then
+        [ -n "$LABEL" ] && success "$LABEL"
+        SUCCESS=$((SUCCESS+1))
+        return 0
+    fi
+    [ -n "$LABEL" ] && failed "$LABEL"
+    FAILED=$((FAILED+1))
+    return 1
+}
+
+# -------------------- LEGACY & ENHANCED OPTIMIZERS --------------------
+background_optimizer() {
+    check_expiry || return 1; create_backup || return 1
+    header "SYMPHINE BACKGROUND OPTIMIZER"
+    SUCCESS=0; FAILED=0; UNSUPPORTED=0
+    apply_setting global app_standby_enabled 1 "App Standby flag"
+    apply_setting global app_restriction_enabled 0 "App Restriction flag"
+    apply_setting global background_check_enabled 0 "Background Check flag"
+    apply_setting global low_power 0 "Battery Saver disabled"
+    apply_setting global cached_apps_freezer enabled "Cached Apps Freezer enabled"
+    line; echo "SUCCESS: $SUCCESS | FAILED: $FAILED | UNSUPPORTED: $UNSUPPORTED"; line
+    echo "Catatan: key ini bergantung ROM dan bukan jaminan peningkatan FPS."
+    log_message "Background optimizer executed"
+}
+
+select_game() {
+    case "$1" in
+        ff|freefire) PACKAGE="com.dts.freefireth"; GAME_NAME="Free Fire" ;;
+        ffmax|max|freefiremax) PACKAGE="com.dts.freefiremax"; GAME_NAME="Free Fire MAX" ;;
+        *) echo "Invalid game. Use ff / ffmax."; return 1 ;;
+    esac
+    if pm path "$PACKAGE" 2>/dev/null | grep -q 'package:'; then
+        echo "Game detected: $GAME_NAME ($PACKAGE)"
+    else
+        warn "$GAME_NAME is not installed."
+    fi
+    return 0
+}
+
+validate_lod() {
+    case "$1" in 1|2|3|4) LOD="$1" ;; *) echo "LOD must be 1-4."; return 1 ;; esac
+}
+
+apply_angle() {
+    check_expiry || return 1
+    GAME_ARG="$1"; GRAPHICS="$2"; LOD_ARG="$3"
+    select_game "$GAME_ARG" || return 1; validate_lod "$LOD_ARG" || return 1
+    case "$GRAPHICS" in
+        smooth) FEATURES="disableAnisotropicFiltering:forceTextureLodOffset$LOD" ;;
+        pixel) FEATURES="forceNearestFiltering:disableAnisotropicFiltering:forceTextureLodOffset$LOD" ;;
+        *) echo "Graphics must be smooth or pixel."; return 1 ;;
+    esac
+    header "SYMPHINE ANGLE GRAPHICS"
+    echo "Game: $GAME_NAME | Graphics: $GRAPHICS | LOD: $LOD"
+    create_backup || return 1
+    apply_setting global angle_gl_driver_selection_pkgs "$PACKAGE" "ANGLE target package"; A=$?
+    apply_setting global angle_gl_driver_selection_values angle "ANGLE driver mode"; B=$?
+    
+    C=1
+    if have_cmd setprop; then
+        setprop debug.angle.feature_overrides_enabled "$FEATURES" >/dev/null 2>&1
+        if [ "$(getprop debug.angle.feature_overrides_enabled)" = "$FEATURES" ]; then
+            success "ANGLE feature property ($FEATURES)"
+            C=0
+        else
+            warn "ANGLE feature property skipped (membutuhkan Root / SELinux permissive)"
+        fi
+    fi
+
+    if have_cmd am; then
+        am force-stop "$PACKAGE" >/dev/null 2>&1
+        echo "Game process restarted cleanly."
+    fi
+    log_message "ANGLE $GAME_NAME $GRAPHICS LOD $LOD"
+    notify "$GAME_NAME - $GRAPHICS"
+    # Sukses jika Settings API (Shizuku/Brevent standard) berhasil diterapkan
+    [ "$A" -eq 0 ] && [ "$B" -eq 0 ]
+}
+
+compile_game() {
+    check_expiry || return 1
+    GAME_ARG="$1"
+    MODE="${2:-speed-profile}"
+    select_game "$GAME_ARG" || return 1
+    case "$MODE" in speed-profile|speed|everything) ;; *) echo "Mode: speed-profile / speed / everything"; return 1 ;; esac
+    if ! pm path "$PACKAGE" 2>/dev/null | grep -q 'package:'; then
+        failed "$GAME_NAME tidak terinstal di perangkat ini."
+        return 1
+    fi
+    header "ART BYTECODE COMPILER"
+    echo "Target : $GAME_NAME ($PACKAGE)"
+    echo "Filter : $MODE (Proses ini memakan waktu 10-45 detik...)"
+    if cmd package compile -m "$MODE" -f "$PACKAGE" 2>&1; then
+        success "Kompilasi ART ($MODE) selesai untuk $GAME_NAME"
+        log_message "Compiled $PACKAGE with $MODE"
+        notify "$GAME_NAME compiled ($MODE)"
+        return 0
+    else
+        failed "Kompilasi ART ditolak oleh sistem"
+        return 1
+    fi
+}
+
+set_refresh() {
+    check_expiry || return 1; HZ="$1"
+    case "$HZ" in 60|90|120|144) ;; *) echo "Choose 60 / 90 / 120 / 144."; return 1 ;; esac
+    header "REFRESH RATE"; echo "Target: ${HZ}Hz (panel harus mendukung mode ini)."
+    create_backup || return 1
+    apply_setting system peak_refresh_rate "$HZ" "Peak refresh rate"; A=$?
+    apply_setting system min_refresh_rate "$HZ" "Minimum refresh rate"; B=$?
+    echo "Peak: $(settings get system peak_refresh_rate) | Min: $(settings get system min_refresh_rate)"
+    log_message "Refresh rate $HZ"; notify "Refresh rate $HZ Hz"
+    [ "$A" -eq 0 ] && [ "$B" -eq 0 ]
+}
+
+set_custom_refresh() {
+    check_expiry || return 1; HZ="$1"
+    case "$HZ" in ''|*[!0-9.]*) echo "Invalid Hz."; return 1 ;; esac
+    awk -v n="$HZ" 'BEGIN {exit !(n>=30 && n<=240)}' || { echo "Range: 30-240 Hz."; return 1; }
+    create_backup || return 1; header "CUSTOM REFRESH RATE"
+    apply_setting system peak_refresh_rate "$HZ" "Peak refresh rate"; A=$?
+    apply_setting system min_refresh_rate "$HZ" "Minimum refresh rate"; B=$?
+    log_message "Custom refresh $HZ"; [ "$A" -eq 0 ] && [ "$B" -eq 0 ]
+}
+
+reset_refresh() {
+    header "RESET REFRESH RATE"
+    settings delete system peak_refresh_rate >/dev/null 2>&1
+    settings delete system min_refresh_rate >/dev/null 2>&1
+    echo "Reset requested; ROM default behavior will apply."
+    log_message "Refresh reset"
+}
+
+refresh_status() {
+    header "REFRESH RATE STATUS"
+    echo "Peak: $(settings get system peak_refresh_rate)"
+    echo "Min : $(settings get system min_refresh_rate)"
+    dumpsys display 2>/dev/null | grep -m 12 -E 'DisplayDeviceInfo|supportedModes|refreshRate'
+}
+
+set_animation() {
+    check_expiry || return 1; SPEED="$1"
+    case "$SPEED" in 0|0.0|0.25|0.5|0.75|1|1.0) ;; *) echo "Choose 0 / 0.25 / 0.5 / 0.75 / 1."; return 1 ;; esac
+    create_backup || return 1; header "ANIMATION OPTIMIZER"
+    apply_setting global window_animation_scale "$SPEED" "Window animation"; A=$?
+    apply_setting global transition_animation_scale "$SPEED" "Transition animation"; B=$?
+    apply_setting global animator_duration_scale "$SPEED" "Animator duration"; C=$?
+    echo "Animation scale: ${SPEED}x"; log_message "Animation $SPEED"
+    [ "$A" -eq 0 ] && [ "$B" -eq 0 ] && [ "$C" -eq 0 ]
+}
+
+apply_touch() {
+    header "TOUCH & UI RESPONSE PROFILE"
+    set_animation "$ANIMATION_SCALE"; RC=$?
+    echo "UI animation profile: ${ANIMATION_SCALE}x"
+    echo "Catatan: Sensitivitas hardware layar sentuh tidak diubah."
+    log_message "Touch profile executed"; return "$RC"
+}
+
+apply_dpi() {
+    check_expiry || return 1; header "DISPLAY DENSITY"; create_backup || return 1
+    if ! have_cmd wm; then unsupported "wm command"; return 1; fi
+    wm density "$TARGET_DPI" >/dev/null 2>&1
+    CURRENT="$(wm density 2>/dev/null)"
+    case "$CURRENT" in
+        *"Override density: $TARGET_DPI"*) success "DPI set to $TARGET_DPI"; log_message "DPI $TARGET_DPI" ;;
+        *) failed "DPI change"; return 1 ;;
+    esac
+}
+
+reset_dpi() {
+    header "RESET DPI"
+    wm density reset >/dev/null 2>&1
+    rm -f "$DPI_BACKUP" 2>/dev/null
+    echo "DPI reset requested."
+    log_message "DPI reset"
+}
+
+gaming_optimizer() {
+    header "GAMING SERVICE & GAME INSPECTOR"
+    for P in com.dts.freefireth com.dts.freefiremax; do
+        if pm path "$P" 2>/dev/null | grep -q 'package:'; then
+            echo "$P : Installed"
+        else
+            echo "$P : Not installed"
+        fi
+    done
+    echo ""; echo "Game Manager Status:"
+    dumpsys game 2>/dev/null | head -n 25
+    angle_status
+}
+
+# -------------------- V5.2 DISPLAY & RESOLUTION --------------------
+angle_driver() {
+    GAME="$1"
+    check_expiry || return 1
+    select_game "$GAME" || return 1
+    create_backup || return 1
+    header "ANGLE DRIVER SELECTION"
+    echo "Package: $PACKAGE"
+    apply_setting global angle_gl_driver_selection_pkgs "$PACKAGE" "ANGLE package selection"; A=$?
+    apply_setting global angle_gl_driver_selection_values angle "ANGLE driver selection"; B=$?
+    if have_cmd am; then am force-stop "$PACKAGE" >/dev/null 2>&1; fi
+    [ "$A" -eq 0 ] && [ "$B" -eq 0 ]
+}
+
+reset_angle() {
+    header "RESET ANGLE DRIVER"
+    settings delete global angle_gl_driver_selection_pkgs >/dev/null 2>&1
+    settings delete global angle_gl_driver_selection_values >/dev/null 2>&1
+    echo "Default driver selection requested."
+    log_message "ANGLE selection reset"
+}
+
+set_custom_dpi() {
+    D="$1"; check_expiry || return 1
+    case "$D" in ''|*[!0-9]*) echo "Invalid DPI."; return 1 ;; esac
+    [ "$D" -ge 100 ] && [ "$D" -le 1000 ] || { echo "Allowed DPI: 100-1000"; return 1; }
+    create_backup || return 1
+    wm density "$D" >/dev/null 2>&1
+    if wm density 2>/dev/null | grep -q "Override density: $D"; then
+        success "DPI set to $D"; log_message "Custom DPI $D"; return 0
+    fi
+    failed "DPI change"; return 1
+}
+
+resolution_status() {
+    header "SCREEN RESOLUTION & DENSITY STATUS"
+    wm size 2>/dev/null
+    echo ""; wm density 2>/dev/null
+}
+
+set_resolution() {
+    R="$1"; check_expiry || return 1
+    case "$R" in *x*) ;; *) echo "Format: WIDTHxHEIGHT"; return 1 ;; esac
+    W="${R%x*}"; H="${R#*x}"
+    case "$W$H" in ''|*[!0-9]*) echo "Invalid resolution."; return 1 ;; esac
+    [ "$W" -ge 320 ] && [ "$W" -le 10000 ] || { echo "Width out of range."; return 1; }
+    [ "$H" -ge 320 ] && [ "$H" -le 10000 ] || { echo "Height out of range."; return 1; }
+    save_display_backups
+    header "SCREEN RESOLUTION"
+    echo "Target: ${W}x${H}"
+    wm size "${W}x${H}" >/dev/null 2>&1
+    if wm size 2>/dev/null | grep -q "Override size: ${W}x${H}"; then
+        success "Resolution applied"; log_message "Resolution ${W}x${H}"; return 0
+    fi
+    failed "Resolution change"; return 1
+}
+
+reset_resolution() {
+    header "RESET SCREEN RESOLUTION & DENSITY"
+    wm size reset >/dev/null 2>&1
+    wm density reset >/dev/null 2>&1
+    rm -f "$RES_BACKUP" "$DPI_BACKUP" 2>/dev/null
+    echo "Physical resolution & default density requested."
+    wm size 2>/dev/null
+    log_message "Resolution and density reset"
+}
+
+restore_resolution() {
+    header "RESTORE ORIGINAL RESOLUTION"
+    if [ ! -f "$RES_BACKUP" ]; then echo "Resolution backup not found."; return 1; fi
+    ORIGINAL="$(sed -n 's/.*Override size: //p' "$RES_BACKUP" | head -n 1)"
+    if [ -n "$ORIGINAL" ]; then wm size "$ORIGINAL" >/dev/null 2>&1
+    else wm size reset >/dev/null 2>&1; fi
+    echo "Original resolution restore requested."
+    wm size 2>/dev/null
+    log_message "Original resolution restored"
+}
+
+set_downscale() {
+    P="$1"; check_expiry || return 1
+    case "$P" in ''|*[!0-9]*) echo "Invalid percentage."; return 1 ;; esac
+    [ "$P" -ge 70 ] && [ "$P" -le 100 ] || { echo "Allowed range: 70-100%"; return 1; }
+    PHYSICAL="$(wm size 2>/dev/null | sed -n 's/.*Physical size: //p' | head -n 1)"
+    PHYS_DPI="$(wm density 2>/dev/null | sed -n 's/.*Physical density: //p' | head -n 1)"
+    [ -n "$PHYSICAL" ] || { echo "Cannot detect physical resolution."; return 1; }
+    W="${PHYSICAL%x*}"; H="${PHYSICAL#*x}"
+    save_display_backups
+    NEW_RES="$(awk -v w="$W" -v h="$H" -v p="$P" 'BEGIN {nw=int(w*p/100/2)*2; nh=int(h*p/100/2)*2; printf "%dx%d",nw,nh}')"
+    header "PROPORTIONAL SCREEN DOWNSCALE"
+    echo "Physical: $PHYSICAL | Scale: ${P}% | Target: $NEW_RES"
+    if set_resolution "$NEW_RES"; then
+        if [ -n "$PHYS_DPI" ]; then
+            NEW_DPI="$(awk -v d="$PHYS_DPI" -v p="$P" 'BEGIN {nd=int(d*p/100); if(nd<120) nd=120; printf "%d",nd}')"
+            wm density "$NEW_DPI" >/dev/null 2>&1
+            echo "Proportional DPI adjusted: ${PHYS_DPI} -> ${NEW_DPI}"
+        fi
+        return 0
+    fi
+    return 1
+}
+
+# -------------------- SYSTEM & COMPATIBILITY --------------------
+compatibility_check() {
+    header "V5.2 COMPATIBILITY CHECK"
+    echo "Android: $(getprop ro.build.version.release) (SDK $(getprop ro.build.version.sdk))"
+    echo "Shell: $0"
+    for TOOL in settings getprop setprop wm pm am dumpsys cmd awk grep sed; do
+        if have_cmd "$TOOL"; then echo "[AVAILABLE] $TOOL"; else echo "[MISSING] $TOOL"; fi
+    done
+    echo ""
+    for KEY in angle_gl_driver_selection_pkgs angle_gl_driver_selection_values; do
+        echo "$KEY = $(settings get global "$KEY" 2>/dev/null)"
+    done
+    if have_cmd cmd && cmd game help >/dev/null 2>&1; then echo "Game service command: present"
+    else echo "Game service command: unavailable or restricted"; fi
+    echo "GPU hint: $(getprop ro.hardware.egl) / $(getprop ro.opengles.version)"
+    getprop 2>/dev/null | grep -iE 'mali|adreno|gpu' | head -n 8
+    echo "Command tersedia tidak menjamin izin atau dukungan ROM."
+    log_message "Compatibility check"
+}
+
+game_mode_set() {
+    MODE="$1"; GAME="$2"; select_game "$GAME" || return 1
+    case "$MODE" in performance|standard|battery) ;; *) echo "Mode: performance / standard / battery"; return 1 ;; esac
+    check_expiry || return 1
+    if ! have_cmd cmd; then unsupported "cmd game"; return 1; fi
+    header "ANDROID GAME MODE"
+    echo "Package: $PACKAGE | Mode: $MODE"
+    cmd game mode "$MODE" "$PACKAGE" 2>&1; RC=$?
+    if [ "$RC" -eq 0 ]; then
+        success "Game mode command accepted"
+        log_message "Game mode $MODE $PACKAGE"
+    else
+        failed "Game mode unsupported, restricted, or rejected"
+    fi
+    echo "Gunakan standard untuk kembali ke mode standar."
+    return "$RC"
+}
+
+quick_optimize() {
+    check_expiry || return 1
+    header "SYMPHINE QUICK PROFILE"
+    echo "Menerapkan animasi 0.5x & background flags."
+    set_animation 0.5
+    background_optimizer
+    log_message "Quick profile executed"
+}
+
+optimization_report() {
+    header "OPTIMIZATION READINESS"
+    echo "RAM available:"; grep -E 'MemAvailable|MemTotal' /proc/meminfo 2>/dev/null
+    echo "Battery:"; battery_info
+    echo "Refresh:"; refresh_status
+    echo "Thermal state (read-only):"; dumpsys thermalservice 2>/dev/null | head -n 12
+    echo "Tidak mengubah thermal protection, kernel, governor, atau tegangan."
+}
+
+system_cleaner() {
+    header "SAFE SCRIPT CLEANER"
+    echo "Cleaning script activity log only."
+    : > "$LOG" 2>/dev/null
+    echo "Activity log cleaned."
+    log_message "Cleaner executed"
+}
+
+show_status() {
+    header "MODULE STATUS"
+    echo "Name: $APP_NAME"; echo "Version: $VERSION"; echo "Developer: $DEVELOPER"
+    echo "TikTok: $TIKTOK"; echo "Expiry: $EXPIRY_DATE"
+    echo "Device: $(getprop ro.product.model)"; echo "Android: $(getprop ro.build.version.release)"
+    [ -f "$BACKUP" ] && echo "Settings Backup: Available" || echo "Settings Backup: Missing"
+    [ -f "$RES_BACKUP" ] && echo "Display Backup : Available" || echo "Display Backup : Missing"
+    [ -f "$INSTALL_DATE" ] && echo "Installed      : $(cat "$INSTALL_DATE")" || echo "Installed      : No"
+}
+
+show_log() { header "ACTIVITY LOG"; if [ -f "$LOG" ]; then tail -n 40 "$LOG"; else echo "No activity."; fi; }
+
+script_checker() {
+    header "SCRIPT ERROR CHECKER"
+    echo "Directory: $BASE"; echo "Shell: $0"; echo "Required commands:"
+    for TOOL in settings setprop getprop pm am date grep sed awk wm dumpsys cmd; do
+        if have_cmd "$TOOL"; then echo "[OK] $TOOL"; else echo "[MISSING] $TOOL"; fi
+    done
+    [ -f "$BACKUP" ] && echo "Backup: Available" || echo "Backup: Missing"
+    [ -w "$BASE" ] && echo "Directory writable: YES" || echo "Directory writable: NO"
+}
+
+install_profile() {
+    GAME="$1"; GRAPHICS="$2"; LOD_ARG="$3"
+    check_expiry || return 1
+    select_game "$GAME" || return 1; validate_lod "$LOD_ARG" || return 1
+    case "$GRAPHICS" in smooth|pixel) ;; *) echo "Graphics must be smooth or pixel."; return 1 ;; esac
+    create_backup || return 1
+    header "INSTALL PROFILE V5.2"
+    echo "Game: $GAME_NAME | Graphics: $GRAPHICS | LOD: $LOD"
+    apply_angle "$GAME" "$GRAPHICS" "$LOD_ARG"; ANGLE_RC=$?
+    apply_touch; TOUCH_RC=$?
+    date '+%Y-%m-%d %H:%M:%S' > "$INSTALL_DATE"
+    if [ "$ANGLE_RC" -eq 0 ] && [ "$TOUCH_RC" -eq 0 ]; then
+        success "Installation sequence completed"
+        log_message "Install profile $GAME $GRAPHICS LOD $LOD"
+        notify "$GAME_NAME — $GRAPHICS installed"
+    else
+        warn "Installation finished with partial success."
+        log_message "Install profile $GAME $GRAPHICS LOD $LOD (partial)"
+        notify "$GAME_NAME — partial install"
+    fi
+    return 0
+}
+
+show_help() {
+    header "$APP_NAME V$VERSION"
+    echo "GRAPHICS   : install ff smooth 2 | smooth ff 2 | pixel ffmax 3"
+    echo "COMPILER   : compile ff speed-profile | compile ffmax speed"
+    echo "ANGLE      : angle-driver ff|ffmax | reset-angle | angle"
+    echo "DISPLAY    : dpi | dpi-custom 430 | resetdpi"
+    echo "RESOLUTION : resolution 720x1600 | resolution-status | reset-resolution | restore-resolution"
+    echo "DOWNSCALE  : downscale 85 | reset-downscale"
+    echo "REFRESH    : hz 60|90|120|144 | customhz 75 | refresh | resethz"
+    echo "OPTIMIZER  : background | animation 0.5 | touch | quick | fullopt ff pixel 2"
+    echo "GAME MODE  : gamemode performance ff | gamemode standard ffmax"
+    echo "INFO       : devicecheck | device | cpu | gpu | display | performance | battery | gaming | network | storage"
+    echo "SYSTEM     : cleaner | backup | restore | check | compatibility | status | log | help"
+}
+
+# -------------------- INTERACTIVE MENU (FIXED & LOOPING) --------------------
+main_menu() {
+    while true; do
+        clear
+        echo ""
+        echo "╭──────────────────────────────────────────────╮"
+        echo "│          REOSHERLY GRAPHICS VVIP             │"
+        echo "│             SYMPHINE EDITION                 │"
+        echo "│                 VERSION 5.2                  │"
+        echo "├──────────────────────────────────────────────┤"
+        echo "│ Developer : ReoSherly / Reo Moser            │"
+        echo "│ TikTok    : @symphine_elyra                  │"
+        echo "│ Platform  : Android / Brevent / Shizuku      │"
+        echo "╰──────────────────────────────────────────────╯"
+        echo ""
+        echo "┌────────── GRAPHICS & COMPILER ───────────────┐"
+        echo "│ [01] INSTALL GRAPHICS PROFILE"
+        echo "│ [02] SMOOTH GRAPHICS"
+        echo "│ [03] PIXEL GRAPHICS"
+        echo "│ [04] BACKGROUND OPTIMIZER"
+        echo "│ [37] ANGLE DRIVER SELECTION"
+        echo "│ [38] RESET ANGLE DRIVER"
+        echo "│ [39] ANGLE DRIVER STATUS"
+        echo "│ [40] GRAPHICS COMPATIBILITY CHECK"
+        echo "│ [52] ART GAME COMPILER (SPEED-PROFILE)"
+        echo "└──────────────────────────────────────────────┘"
+        echo ""
+        echo "┌────────── DISPLAY MANAGEMENT ───────────────┐"
+        echo "│ [05] APPLY DPI 430"
+        echo "│ [06] RESET DPI"
+        echo "│ [41] CUSTOM DPI"
+        echo "│ [42] SET SCREEN RESOLUTION"
+        echo "│ [43] RESET SCREEN RESOLUTION"
+        echo "│ [44] RESOLUTION STATUS"
+        echo "│ [45] PROPORTIONAL SCREEN DOWNSCALE"
+        echo "│ [46] RESET SCREEN DOWNSCALE"
+        echo "│ [47] DISPLAY INFORMATION"
+        echo "└──────────────────────────────────────────────┘"
+        echo ""
+        echo "┌────────── REFRESH RATE ─────────────────────┐"
+        echo "│ [07] LOCK 60 HZ"
+        echo "│ [08] LOCK 90 HZ"
+        echo "│ [09] LOCK 120 HZ"
+        echo "│ [10] LOCK 144 HZ"
+        echo "│ [11] CUSTOM REFRESH RATE"
+        echo "│ [12] RESET REFRESH RATE"
+        echo "│ [13] REFRESH RATE STATUS"
+        echo "└──────────────────────────────────────────────┘"
+        echo ""
+        echo "┌────────── TOUCH & ANIMATION ────────────────┐"
+        echo "│ [14] TOUCH / ANIMATION PROFILE"
+        echo "│ [15] CUSTOM ANIMATION"
+        echo "│ [48] ANIMATION RESET (1.0X)"
+        echo "└──────────────────────────────────────────────┘"
+        echo ""
+        echo "┌────────── DEVICE INFORMATION ───────────────┐"
+        echo "│ [16] DISPLAY INFORMATION"
+        echo "│ [17] DEVICE INFORMATION"
+        echo "│ [18] CPU INFORMATION"
+        echo "│ [19] GPU INFORMATION"
+        echo "│ [20] PERFORMANCE MONITOR"
+        echo "│ [21] BATTERY INFORMATION"
+        echo "│ [22] GAMING OPTIMIZER & INSPECTOR"
+        echo "│ [23] NETWORK INFORMATION"
+        echo "│ [24] STORAGE MANAGER"
+        echo "│ [32] DEVICE CHECK ALL-IN-ONE"
+        echo "│ [36] OPTIMIZATION READINESS"
+        echo "└──────────────────────────────────────────────┘"
+        echo ""
+        echo "┌────────── SYSTEM UTILITIES ─────────────────┐"
+        echo "│ [25] SAFE SCRIPT CLEANER"
+        echo "│ [26] ANGLE STATUS"
+        echo "│ [27] CREATE BACKUP"
+        echo "│ [28] RESTORE ALL BACKUP SETTINGS"
+        echo "│ [29] SCRIPT ERROR CHECKER"
+        echo "│ [30] ACTIVITY LOG"
+        echo "│ [31] MODULE STATUS"
+        echo "│ [33] COMPATIBILITY CHECK"
+        echo "│ [34] QUICK OPTIMIZE"
+        echo "│ [35] ANDROID GAME MODE"
+        echo "└──────────────────────────────────────────────┘"
+        echo ""
+        echo "┌────────── ADVANCED UTILITIES ────────────────┐"
+        echo "│ [49] INSTALL FULL GRAPHICS PROFILE"
+        echo "│ [50] FULL RESTORE (DISPLAY + SETTINGS)"
+        echo "│ [51] SHOW ALL COMMANDS"
+        echo "└──────────────────────────────────────────────┘"
+        echo ""
+        echo "╭──────────────────────────────────────────────╮"
+        echo "│ [00] EXIT                                     │"
+        echo "╰──────────────────────────────────────────────╯"
+        echo ""
+        printf "  REOSHERLY@SYMPHINE ~# "
+        read CHOICE
+        case "$CHOICE" in
+            1|01) printf "Game (ff/ffmax): "; read G; printf "Graphics (smooth/pixel): "; read F; printf "LOD (1-4): "; read L; install_profile "$G" "$F" "$L" ;;
+            2|02) printf "Game (ff/ffmax): "; read G; printf "LOD (1-4): "; read L; apply_angle "$G" smooth "$L" ;;
+            3|03) printf "Game (ff/ffmax): "; read G; printf "LOD (1-4): "; read L; apply_angle "$G" pixel "$L" ;;
+            4|04) background_optimizer ;;
+            5|05) apply_dpi ;;
+            6|06) reset_dpi ;;
+            7|07) set_refresh 60 ;;
+            8|08) set_refresh 90 ;;
+            9|09) set_refresh 120 ;;
+            10) set_refresh 144 ;;
+            11) printf "Custom Hz: "; read H; set_custom_refresh "$H" ;;
+            12) reset_refresh ;;
+            13) refresh_status ;;
+            14) apply_touch ;;
+            15) printf "Animation (0/0.25/0.5/0.75/1): "; read S; set_animation "$S" ;;
+            16) display_info ;;
+            17) device_info ;;
+            18) cpu_info ;;
+            19) gpu_info ;;
+            20) performance_monitor ;;
+            21) battery_info ;;
+            22) gaming_optimizer ;;
+            23) network_info ;;
+            24) storage_manager ;;
+            25) system_cleaner ;;
+            26) angle_status ;;
+            27) create_backup ;;
+            28) restore_default ;;
+            29) script_checker ;;
+            30) show_log ;;
+            31) show_status ;;
+            32) device_check ;;
+            33) compatibility_check ;;
+            34) quick_optimize ;;
+            35) printf "Game (ff/ffmax): "; read G; printf "Mode (performance/standard/battery): "; read M; game_mode_set "$M" "$G" ;;
+            36) optimization_report ;;
+            37) printf "Game (ff/ffmax): "; read G; angle_driver "$G" ;;
+            38) reset_angle ;;
+            39) angle_status ;;
+            40) compatibility_check ;;
+            41) printf "Custom DPI: "; read D; set_custom_dpi "$D" ;;
+            42) printf "Resolution (contoh 720x1600): "; read R; set_resolution "$R" ;;
+            43) reset_resolution ;;
+            44) resolution_status ;;
+            45) printf "Downscale percentage (70-100): "; read P; set_downscale "$P" ;;
+            46) reset_resolution ;;
+            47) display_info ;;
+            48) set_animation 1 ;;
+            49) printf "Game (ff/ffmax): "; read G; printf "Graphics (smooth/pixel): "; read F; printf "LOD (1-4): "; read L; install_profile "$G" "$F" "$L" ;;
+            50) restore_default ;;
+            51) show_help ;;
+            52) printf "Game (ff/ffmax): "; read G; printf "Mode (speed-profile/speed): "; read M; compile_game "$G" "$M" ;;
+            0|00|exit|quit) echo "REOSHERLY VVIP — SESSION CLOSED"; return 0 ;;
+            *) echo "[ERROR] Invalid menu selection." ;;
+        esac
+        echo ""
+        echo "╭──────────────────────────────────────────────╮"
+        echo "│          OPERATION COMPLETED                 │"
+        echo "╰──────────────────────────────────────────────╯"
+        printf "Tekan [ENTER] untuk kembali ke menu (atau ketik 0 untuk keluar): "
+        read NEXT_ACTION
+        case "$NEXT_ACTION" in 0|00|exit|quit) echo "REOSHERLY VVIP — SESSION CLOSED"; return 0 ;; esac
+    done
+}
+
+# -------------------- COMMAND SYSTEM --------------------
+case "$1" in
+    install) [ "$#" -eq 4 ] || { echo "install GAME GRAPHICS LOD"; exit 1; }; install_profile "$2" "$3" "$4" ;;
+    smooth|pixel) [ "$#" -eq 3 ] || { echo "$1 GAME LOD"; exit 1; }; apply_angle "$2" "$1" "$3" ;;
+    compile) [ "$#" -ge 2 ] || { echo "compile ff|ffmax [speed-profile|speed]"; exit 1; }; compile_game "$2" "$3" ;;
+    background|bg) background_optimizer ;;
+    dpi) apply_dpi ;; resetdpi) reset_dpi ;;
+    dpi-custom) [ "$#" -eq 2 ] || { echo "dpi-custom VALUE"; exit 1; }; set_custom_dpi "$2" ;;
+    hz) [ "$#" -eq 2 ] || { echo "hz 60|90|120|144"; exit 1; }; set_refresh "$2" ;;
+    customhz) [ "$#" -eq 2 ] || { echo "customhz VALUE"; exit 1; }; set_custom_refresh "$2" ;;
+    resethz) reset_refresh ;; refresh) refresh_status ;;
+    animation) [ "$#" -eq 2 ] || { echo "animation 0|0.25|0.5|0.75|1"; exit 1; }; set_animation "$2" ;;
+    touch) apply_touch ;;
+    device|info) device_info ;; devicecheck|allinfo) device_check ;;
+    cpu) cpu_info ;; gpu) gpu_info ;; display) display_info ;;
+    performance|monitor) performance_monitor ;; battery) battery_info ;;
+    gaming|game) gaming_optimizer ;; network|net) network_info ;; storage) storage_manager ;;
+    clean|cleaner) system_cleaner ;; angle) angle_status ;;
+    angle-driver) [ "$#" -eq 2 ] || { echo "angle-driver ff|ffmax"; exit 1; }; angle_driver "$2" ;;
+    reset-angle) reset_angle ;;
+    resolution) [ "$#" -eq 2 ] || { echo "resolution WIDTHxHEIGHT"; exit 1; }; set_resolution "$2" ;;
+    reset-resolution) reset_resolution ;;
+    restore-resolution) restore_resolution ;;
+    resolution-status) resolution_status ;;
+    downscale) [ "$#" -eq 2 ] || { echo "downscale 70-100"; exit 1; }; set_downscale "$2" ;;
+    reset-downscale) reset_resolution ;;
+    backup) create_backup ;; restore|reset) restore_default ;;
+    check|doctor) script_checker ;; compatibility|compat) compatibility_check ;;
+    quick) quick_optimize ;; readiness) optimization_report ;;
+    gamemode) [ "$#" -eq 3 ] || { echo "gamemode performance|standard|battery ff|ffmax"; exit 1; }; game_mode_set "$2" "$3" ;;
+    fullopt) [ "$#" -eq 4 ] || { echo "fullopt ff|ffmax smooth|pixel 1-4"; exit 1; }; install_profile "$2" "$3" "$4" ;;
+    log) show_log ;; status) show_status ;; help|-h|--help) show_help ;;
+    "") main_menu ;;
+    *) echo "Unknown command: $1"; show_help; exit 1 ;;
+esac
+
+EXIT_CODE=$?
+echo ""
+line
+echo "       REOSHERLY GRAPHICS VVIP V5.2"
+echo "             SYMPHINE EDITION"
+line
+exit "$EXIT_CODE"
+
+MASTER PROMPT — SYMPHINE GAME SPACE
+
+ULTIMATE NATIVE ANDROID GAMING HUB & ADVANCED GAME MANAGEMENT CENTER
+
+Developer: Reo Moser
+Application Name: SYMPHINE GAME SPACE
+Version: 1.0.0
+Package Name: "com.symphine.gamespace"
+Architecture: Native Android
+Language: Kotlin
+UI: Jetpack Compose + Material 3
+Build System: Gradle Kotlin DSL
+Minimum SDK: Android 10 (API 29)
+Target SDK: Latest stable Android SDK available
+Supported Android: Android 10–16+
+CPU Architecture: ARM64-compatible
+Mode: Offline-first
+Root: Not required for core features
+Shizuku: Optional
+Primary Feature: Advanced Game Library & Individual Game Detail Center
+Design: Symphine Liquid Glass AMOLED Lavender
+
+---
+
+01. PROJECT OBJECTIVE
+
+Develop a complete, functional, native Android gaming management application called SYMPHINE GAME SPACE, developed by Reo Moser.
+
+The application should be inspired by the gaming experience and organization of:
+
+- ASUS ROG Gaming Center
+- RedMagic Gaming Space
+- POCO Game Turbo
+- Realme Game Space
+- Modern Android gaming dashboards
+
+However, SYMPHINE must have its own original UI, architecture, implementation and identity.
+
+The application must NOT be:
+
+- A WebView application.
+- An HTML-based application.
+- A static dashboard.
+- A visual prototype.
+- A fake performance optimizer.
+- A collection of non-functional buttons.
+- An application that displays invented monitoring data.
+
+The objective is to build a real native Android application with working navigation, game detection, device diagnostics, monitoring, game profiles, display diagnostics, customization, backup and restore, permission management and optional Shizuku integration.
+
+Prioritize real functionality, compatibility, stability, reversible operations and actual verification over feature count.
+
+---
+
+02. DEVELOPMENT RULES
+
+1. Use native Kotlin and Jetpack Compose.
+2. Never replace the native application with a WebView.
+3. Never fabricate CPU, RAM, GPU, temperature or FPS information.
+4. Never claim a system setting has been applied without verification.
+5. Never create non-functional buttons.
+6. Never claim universal compatibility.
+7. Never require root for the core features.
+8. Shizuku must remain optional.
+9. Never automatically modify undocumented system properties in bulk.
+10. Never disable Android thermal protection or critical security mechanisms.
+11. Never modify game memory, game binaries or anti-cheat systems.
+12. Never implement gameplay cheats, macros, aim assistance or gameplay manipulation.
+13. Never aggressively kill background processes.
+14. Never automatically delete personal files.
+15. Never execute arbitrary commands from user input.
+16. Every supported modification must have validation and appropriate recovery.
+17. Unsupported operations must be explicitly marked.
+18. Use actual Android APIs whenever possible.
+19. Do not implement fake optimization effects.
+20. Do not claim FPS improvements without reliable evidence.
+21. Clearly distinguish cosmetic customization from real system operations.
+22. Keep user data local unless the user explicitly exports it.
+23. Do not introduce unnecessary network dependencies.
+24. Deliver a real Android project and an APK when compilation is possible.
+
+---
+
+03. TECHNOLOGY STACK
+
+Use:
+
+- Kotlin.
+- Jetpack Compose.
+- Material 3.
+- AndroidX.
+- Navigation Compose.
+- ViewModel.
+- Lifecycle.
+- Kotlin Coroutines.
+- Flow and StateFlow.
+- DataStore.
+- Room where appropriate.
+- Android PackageManager.
+- ActivityManager.
+- BatteryManager.
+- PowerManager.
+- DisplayManager.
+- WindowManager.
+- Settings APIs.
+- Storage Access Framework.
+- Android Notification APIs.
+- Android Overlay APIs where supported.
+- Android Thermal APIs.
+- Android graphics APIs.
+- JSON serialization.
+- Shizuku API.
+- Gradle Kotlin DSL.
+
+Use stable, compatible dependencies.
+
+Avoid abandoned libraries, unnecessary dependencies and incompatible SDK integrations.
+
+---
+
+04. PROJECT ARCHITECTURE
+
+Create a maintainable, modular project.
+
+Suggested architecture:
+
+com.symphine.gamespace
+
+- app
+- core
+  - common
+  - model
+  - ui
+  - permissions
+  - compatibility
+  - monitoring
+  - utilities
+- data
+  - database
+  - datastore
+  - repositories
+  - serialization
+- device
+  - DeviceInfoProvider
+  - DisplayInfoProvider
+  - BatteryInfoProvider
+  - ThermalInfoProvider
+  - CpuInfoProvider
+  - MemoryInfoProvider
+  - StorageInfoProvider
+  - GraphicsInfoProvider
+- games
+  - GameScanner
+  - GameRepository
+  - GameLauncher
+  - GameLibraryViewModel
+  - GameDetailViewModel
+  - GameSessionManager
+  - GameCustomizationRepository
+  - GameProfileManager
+- performance
+  - ProfileEngine
+  - RecommendationEngine
+  - CompatibilityEngine
+  - SettingsRegistry
+  - ConfigurationHistory
+  - RollbackManager
+- display
+  - RefreshRateManager
+  - ResolutionManager
+  - DensityManager
+  - DisplayBackupManager
+  - DisplayCompatibility
+- graphics
+  - GraphicsDiagnostics
+  - RendererInformation
+  - AngleInformation
+  - VulkanInformation
+  - GraphicsCompatibility
+- shizuku
+  - ShizukuManager
+  - ShizukuConnection
+  - ShizukuPermissionHandler
+  - ShizukuOperationRegistry
+  - ShizukuResult
+- overlay
+  - GamingOverlayService
+  - OverlayController
+  - OverlayConfiguration
+  - OverlayPermissionManager
+- diagnostics
+  - DiagnosticEngine
+  - PerformanceReport
+  - LoggingDiagnostics
+  - BackgroundDiagnostics
+- backup
+  - BackupEngine
+  - RestoreEngine
+  - BackupValidator
+  - BackupSchema
+- ui
+  - theme
+  - components
+  - navigation
+  - screens
+  - dialogs
+  - state
+- settings
+  - AppSettings
+  - UiSettings
+  - GameSettings
+  - SystemSettings
+
+Adapt the structure as necessary, but preserve the separation of UI, data, system APIs, monitoring and configuration logic.
+
+---
+
+05. SYMPHINE LIQUID GLASS DESIGN SYSTEM
+
+Create an original premium Android gaming UI.
+
+Visual identity
+
+- AMOLED Black.
+- Soft Lavender Gray.
+- Silver.
+- Purple Accent.
+- Graphite.
+- Frosted Glass.
+- Liquid-inspired visual effects.
+- Subtle gradients.
+- Rounded cards.
+- Smooth transitions.
+- Premium typography.
+- Minimalist interface.
+- Soft lighting.
+- Subtle glow.
+- Clean spacing.
+- High contrast.
+- Modern Material 3.
+- Responsive layouts.
+
+Color palette
+
+- Background: "#08090D"
+- Surface: "#111319"
+- Surface Elevated: "#191B23"
+- Lavender Gray: "#B8B4C9"
+- Soft Silver: "#D5D5DF"
+- Purple Accent: "#A78BFA"
+- Secondary Accent: "#C4B5FD"
+- Muted Text: "#8D909C"
+- Border: "#292B35"
+
+Make colors customizable.
+
+UI requirements
+
+- Animated bottom navigation.
+- Smooth page transitions.
+- Expandable cards.
+- Collapsible sections.
+- Loading states.
+- Empty states.
+- Error states.
+- Unsupported states.
+- Permission states.
+- Verified operation states.
+- Confirmation dialogs.
+- Preview screens.
+- Snackbar feedback.
+- Accessibility support.
+- Screen-reader labels.
+- Adaptive text sizes.
+- Reduced motion support.
+- Responsive tablet layouts.
+
+Main navigation
+
+1. Home.
+2. Game Space.
+3. Performance.
+4. Monitoring.
+5. Settings.
+
+---
+
+06. HOME DASHBOARD
+
+Create a fully functional dashboard.
+
+Display real device information where accessible:
+
+- Manufacturer.
+- Device model.
+- Android version.
+- API level.
+- Build information.
+- CPU architecture.
+- CPU model.
+- CPU core count.
+- Chipset information where available.
+- GPU information where available.
+- RAM.
+- Available RAM.
+- Storage.
+- Display resolution.
+- Display density.
+- Supported refresh rates.
+- Current refresh rate.
+- Battery percentage.
+- Battery charging status.
+- Battery temperature where available.
+- Thermal status.
+- Shizuku status.
+- Active profile.
+- Active game when reliably detectable.
+
+Dashboard cards
+
+- Device Overview.
+- Game Library.
+- Active Profile.
+- Battery.
+- Thermal.
+- Memory.
+- Storage.
+- Display.
+- Graphics.
+- Shizuku.
+- Monitoring.
+- Recommendations.
+
+Quick actions
+
+- Scan Games.
+- Open Game Library.
+- Display Center.
+- Performance Center.
+- Monitoring.
+- Backup.
+- Diagnostics.
+- Shizuku Center.
+
+Every action must navigate to a real feature or execute a verified operation.
+
+---
+
+07. ADVANCED GAME LIBRARY
+
+The Game Library is the primary feature of SYMPHINE GAME SPACE.
+
+Implement a complete native game management center.
+
+Game detection
+
+Use Android PackageManager and valid package visibility declarations.
+
+Implement:
+
+- Installed application scanner.
+- Game classification.
+- Game category detection.
+- Package name.
+- Application name.
+- Application icon.
+- Version information where accessible.
+- Install information where accessible.
+- Launchable activity detection.
+- Game launcher.
+- Rescan.
+- Refresh.
+- Search.
+- Sorting.
+- Filtering.
+- Favorites.
+- Pinned games.
+- Hidden games.
+- Recently installed where available.
+- Recently played based on local session history.
+- Custom groups.
+- Custom tags.
+- Custom notes.
+- Custom labels.
+- Custom banners.
+- Custom card backgrounds.
+- Custom accent colors.
+
+Avoid treating every installed package as a game.
+
+Use game metadata when available and provide user-controlled classification.
+
+Library layout
+
+- Grid view.
+- List view.
+- Compact view.
+- Large cards.
+- Search results.
+- Alphabetical sorting.
+- Reverse alphabetical sorting.
+- Favorites.
+- Pinned.
+- Hidden.
+- Custom groups.
+- Recently played.
+- Custom categories.
+
+Game cards
+
+Display:
+
+- Application icon.
+- Game name.
+- Optional custom banner.
+- Package name on demand.
+- Active profile.
+- Favorite status.
+- Pin status.
+- Game status.
+- Custom accent.
+- Launch action.
+- Detail Center action.
+
+Game management
+
+- Launch Game.
+- Favorite.
+- Unfavorite.
+- Pin.
+- Unpin.
+- Hide.
+- Unhide.
+- Change local label.
+- Change local icon.
+- Change local banner.
+- Add notes.
+- Add tags.
+- Assign group.
+- Assign profile.
+- Reset customization.
+- Refresh information.
+- Open Android App Info.
+
+Bulk management
+
+Allow multi-selection for:
+
+- Favorite.
+- Unfavorite.
+- Pin.
+- Unpin.
+- Hide.
+- Unhide.
+- Assign group.
+- Assign profile.
+- Export profiles.
+- Backup.
+- Reset selected customization.
+
+Do not blindly apply system modifications to multiple games.
+
+---
+
+08. INDIVIDUAL GAME DETAIL CENTER
+
+Every detected game must have its own persistent Game Detail Center.
+
+Sections
+
+1. Overview.
+2. Performance.
+3. Display.
+4. Graphics.
+5. Memory.
+6. Battery.
+7. Thermal.
+8. Gaming Tools.
+9. Background.
+10. Customization.
+11. Monitoring.
+12. Compatibility.
+13. Profile.
+14. Advanced Settings.
+15. Backup.
+
+Implement animated tabs, searchable settings, category filters, descriptions, status indicators, preview and reset actions.
+
+Game Overview
+
+Display:
+
+- Application icon.
+- Game name.
+- Package name.
+- Version where accessible.
+- Launch button.
+- Favorite toggle.
+- Pin status.
+- Active profile.
+- Profile summary.
+- Display information.
+- Current refresh rate.
+- Screen resolution.
+- Display density.
+- Thermal status.
+- Battery information.
+- Available memory.
+- Monitoring status.
+- Compatibility summary.
+- Customization summary.
+- Configuration history.
+- Recommendations.
+
+---
+
+09. PER-GAME PROFILE ENGINE
+
+Create persistent per-game profiles.
+
+Profiles
+
+- Balanced.
+- Gaming.
+- Battery Saver.
+- Smart.
+- Recommended.
+- Custom.
+- Gaming Stable.
+- Display Focus.
+- Monitoring Focus.
+- Custom Template.
+
+Profile functions
+
+- Select profile.
+- Preview profile.
+- Apply profile.
+- Save profile.
+- Clone profile.
+- Rename profile.
+- Delete custom profile.
+- Reset profile.
+- Export profile.
+- Import profile.
+- Restore profile.
+- Compare profiles.
+- View configuration history.
+- View compatibility.
+- Detect conflicts.
+- Verify supported operations.
+- Rollback failed operations.
+
+Profile activation
+
+Implement automatic profile activation only when a reliable, permitted mechanism exists.
+
+If reliable game detection is unavailable, provide manual activation.
+
+Automatic restoration must require:
+
+- Supported operations.
+- Recorded original values.
+- Reliable session detection.
+- Verified restoration.
+
+---
+
+10. DISPLAY CENTER
+
+Create a display diagnostics and configuration center.
+
+Refresh rate
+
+Display:
+
+- Current refresh rate.
+- Supported refresh rates.
+- Display modes.
+- Adaptive refresh information where available.
+- Compatibility.
+- Current configuration.
+
+Implement:
+
+- Supported mode selection.
+- Preview.
+- Apply.
+- Verification.
+- Reset.
+- Restore.
+- Configuration history.
+- Compatibility warnings.
+
+Generate selectable refresh rates from real device-supported modes.
+
+Do not hardcode 60, 90, 120 or 144 Hz as universal options.
+
+Per-game refresh control must only be implemented where the platform supports a reliable mechanism.
+
+Resolution Center
+
+Display:
+
+- Actual resolution.
+- Display mode.
+- Supported configurations where accessible.
+- Aspect ratio.
+- Compatibility.
+
+Implement diagnostics and supported adjustment through documented and validated mechanisms.
+
+If unsupported, clearly mark it as Unsupported.
+
+Never simulate a resolution change.
+
+DPI Control
+
+Implement a safe, optional density configuration interface where supported.
+
+- Current density information.
+- Display scaling information.
+- Numeric input.
+- Presets.
+- Preview.
+- Validation.
+- Confirmation.
+- Original value backup.
+- Apply.
+- Verification.
+- Restore.
+- Reset.
+- Rollback.
+- Configuration history.
+
+Include safeguards:
+
+- Validated ranges.
+- Warnings.
+- Original-value backup.
+- Restore instructions.
+- Verification.
+- Recovery workflow.
+
+Additional display features
+
+- Fullscreen compatibility.
+- Screen size information.
+- UI scaling.
+- Immersive mode information.
+- Aspect ratio diagnostics.
+- Display backup.
+- Display restore.
+- Display compatibility.
+
+---
+
+11. GRAPHICS CENTER
+
+Create a real graphics diagnostics and compatibility center.
+
+Display:
+
+- GPU name.
+- GPU manufacturer where available.
+- Graphics driver information where accessible.
+- OpenGL ES version.
+- Vulkan support.
+- Vulkan version where accessible.
+- Renderer information where accessible.
+- ANGLE information where accessible.
+- Graphics API.
+- Compatibility.
+- Supported configuration.
+- Unknown or unsupported states.
+
+Implement:
+
+- Graphics diagnostics.
+- Renderer information.
+- Graphics compatibility.
+- Driver information.
+- Supported configuration.
+- Game-specific graphics notes.
+- Graphics profile documentation.
+- Backup records.
+- Reset.
+- Restore.
+
+ANGLE & graphics configuration
+
+Implement an ANGLE information center.
+
+Display:
+
+- ANGLE availability.
+- Driver selection status.
+- Android graphics configuration.
+- Compatibility.
+- Supported driver information where available.
+- Current selection where accessible.
+- Unsupported states.
+- Diagnostics.
+
+Use documented and supported Android mechanisms only.
+
+Do not force ANGLE or renderer selection into games without verified compatibility.
+
+Do not modify game binaries, game memory or internal game assets.
+
+Do not provide false claims that renderer changes improve performance.
+
+---
+
+12. MONITORING CENTER
+
+Create real device monitoring.
+
+Monitoring information
+
+- CPU utilization where measurable.
+- CPU frequency where readable.
+- CPU core information.
+- RAM usage.
+- Available RAM.
+- Battery percentage.
+- Battery temperature.
+- Thermal status.
+- Current refresh rate.
+- Session duration.
+- Sensor availability.
+- Monitoring status.
+
+Monitoring functions
+
+- Start monitoring.
+- Stop monitoring.
+- Reset.
+- Session monitoring.
+- Monitoring history.
+- Export monitoring data.
+- Interval selection.
+- Graph visualization.
+- Performance warnings.
+- Sensor availability.
+- Unsupported states.
+
+Monitoring must be lifecycle-safe and battery-conscious.
+
+Do not fabricate GPU utilization.
+
+---
+
+13. GAMING OVERLAY
+
+Create a native gaming overlay where supported.
+
+Use Android overlay permission and proper service lifecycle handling.
+
+Overlay information
+
+- Session timer.
+- Active profile.
+- CPU information.
+- RAM information.
+- Battery.
+- Thermal status.
+- Refresh rate.
+- Monitoring status.
+
+Customization
+
+- Show.
+- Hide.
+- Drag.
+- Resize.
+- Compact mode.
+- Expanded mode.
+- Opacity.
+- Position.
+- Custom layout.
+- Custom accent.
+- Custom card style.
+- Per-game preferences.
+
+Safety and compatibility
+
+- Explain permissions.
+- Request permission only when necessary.
+- Show permission status.
+- Provide recovery instructions.
+- Stop service when appropriate.
+- Respect application lifecycle.
+- Avoid intercepting game interactions.
+- Avoid excessive screen obstruction.
+- Provide fallback.
+
+---
+
+14. GAMING TOOLS
+
+Implement supported Android utilities.
+
+- Gaming Quick Panel.
+- Brightness shortcut.
+- Volume shortcut.
+- Orientation information.
+- DND integration where permitted.
+- Notification management information.
+- Session timer.
+- Fullscreen information.
+- Screenshot shortcut using supported Android APIs.
+- Screen recording shortcut using supported Android APIs.
+- Floating panel.
+- Overlay monitoring.
+- Game launcher.
+- Profile switching.
+
+Screenshot and recording must use legitimate Android APIs and user consent where required.
+
+Do not bypass system recording restrictions.
+
+---
+
+15. CPU CENTER
+
+Display actual CPU information where accessible.
+
+- CPU model.
+- CPU architecture.
+- Core count.
+- Core information.
+- CPU utilization.
+- Frequency information.
+- Load diagnostics.
+- Temperature information where accessible.
+- Compatibility.
+- Monitoring.
+
+Implement:
+
+- CPU diagnostics.
+- CPU monitoring.
+- CPU usage graph.
+- Usage history.
+- Frequency information.
+- Compatibility report.
+
+Do not claim CPU overclocking or CPU clock control without a legitimate supported API.
+
+Do not modify CPU voltage or kernel configuration.
+
+---
+
+16. GPU CENTER
+
+Display:
+
+- GPU name.
+- Graphics API.
+- OpenGL ES.
+- Vulkan.
+- Driver information.
+- Graphics compatibility.
+- Supported monitoring.
+
+Implement:
+
+- GPU diagnostics.
+- Graphics compatibility.
+- API information.
+- Driver information.
+- Unsupported feature reporting.
+- Graphics profile documentation.
+
+GPU utilization must only be displayed if reliably measurable.
+
+---
+
+17. RAM CENTER
+
+Implement:
+
+- Total RAM.
+- Available RAM.
+- Memory usage.
+- Memory pressure.
+- Swap information where accessible.
+- Memory diagnostics.
+- Background diagnostics.
+- Monitoring graph.
+
+Use real Android memory information.
+
+Do not create fake RAM cleaning.
+
+Do not aggressively terminate applications.
+
+Do not claim RAM has been optimized merely because information was refreshed.
+
+---
+
+18. STORAGE CENTER
+
+Display:
+
+- Total storage.
+- Used storage.
+- Available storage.
+- Storage percentage.
+- Storage diagnostics.
+- App storage information where accessible.
+
+Implement:
+
+- Storage monitoring.
+- Storage diagnostics.
+- Safe cleanup.
+- User-selected cleanup.
+- Cleanup confirmation.
+- Storage overview.
+
+Cleanup must only remove files explicitly selected by the user and accessible through legitimate APIs.
+
+Never automatically delete application data, personal files, system files or unselected files.
+
+---
+
+19. BATTERY CENTER
+
+Display:
+
+- Battery percentage.
+- Charging status.
+- Battery temperature.
+- Voltage where available.
+- Current where available.
+- Battery diagnostics.
+- Thermal status.
+- Battery monitoring.
+
+Implement:
+
+- Battery information.
+- Battery diagnostics.
+- Battery profile.
+- Battery warnings.
+- Charging information.
+- Thermal warnings.
+- Session monitoring.
+
+Do not claim accurate battery health if Android does not provide reliable access.
+
+---
+
+20. THERMAL CENTER
+
+Display:
+
+- Device thermal status.
+- Thermal warnings.
+- Available thermal sensors.
+- Battery temperature.
+- CPU temperature where accessible.
+- GPU temperature only when available.
+- Thermal zone information where accessible.
+- Cooling status where available.
+
+Implement:
+
+- Thermal monitoring.
+- Thermal diagnostics.
+- Thermal warnings.
+- Thermal status history.
+- Cooling recommendations.
+
+Never spoof temperatures.
+
+Never disable thermal protection.
+
+Never force voltage or clocks.
+
+Never claim control of every thermal zone.
+
+---
+
+21. PERFORMANCE CENTER
+
+Create a modular profile center.
+
+Profiles
+
+- Balanced.
+- Gaming.
+- Battery Saver.
+- Smart.
+- Custom.
+- Recommended.
+
+Functions
+
+- Profile switcher.
+- Profile editor.
+- Profile preview.
+- Apply.
+- Reset.
+- Backup.
+- Restore.
+- History.
+- Compatibility.
+- Supported settings.
+- Unsupported settings.
+- Verification.
+- Rollback.
+
+Profiles must only modify validated and supported settings.
+
+Do not claim FPS improvements without reliable evidence.
+
+---
+
+22. SYSTEM TUNING CENTER
+
+Create a centralized system diagnostics registry.
+
+Diagnostics
+
+- App Standby information.
+- Doze diagnostics.
+- Job Scheduler diagnostics.
+- Background activity diagnostics.
+- Memory diagnostics.
+- Multitasking diagnostics.
+- Storage diagnostics.
+- SQLite diagnostics.
+- Input latency information.
+- Keyboard-related diagnostics.
+- Logging diagnostics.
+- Debug property information.
+- OEM compatibility.
+- Device configuration compatibility.
+- System settings registry.
+
+Registry
+
+Each configuration must contain:
+
+- Unique ID.
+- Category.
+- Name.
+- Description.
+- Default value where known.
+- Current value where accessible.
+- Supported status.
+- Android compatibility.
+- Required permission.
+- Compatibility result.
+- Risk classification.
+- Operation status.
+- Verification result.
+- Backup information.
+- Restore information.
+- Rollback status.
+- Documentation.
+
+Do not automatically apply undocumented system properties.
+
+Do not modify security configuration, bootloader, partitions, kernel, voltage or critical settings.
+
+---
+
+23. LOGGING & DIAGNOSTICS CENTER
+
+Create a modular diagnostics interface.
+
+Categories
+
+- Performance diagnostics.
+- Frame timing information.
+- Memory diagnostics.
+- Battery diagnostics.
+- Application diagnostics.
+- System compatibility.
+- Logging information.
+- Background diagnostics.
+
+Profiles
+
+- Default.
+- Lite.
+- Custom.
+
+Implement:
+
+- Diagnostics overview.
+- Compatibility information.
+- Sampling information where available.
+- Configuration status.
+- Validated registry.
+- Backup.
+- Restore.
+- Documented controls.
+- Operation history.
+
+Do not blindly copy experimental system overrides.
+
+Do not disable security or modify undocumented telemetry controls.
+
+---
+
+24. OFFLINE RECOMMENDATION ENGINE
+
+Create an offline recommendation engine.
+
+Analyze actual device information:
+
+- Device model.
+- Manufacturer.
+- Android version.
+- CPU architecture.
+- RAM.
+- GPU information where available.
+- Display modes.
+- Thermal status.
+- Available memory.
+- Shizuku status.
+- Permissions.
+- Supported features.
+- Compatibility.
+- Current configuration.
+
+Generate:
+
+- Balanced.
+- Gaming.
+- Battery Saver.
+- Custom.
+
+Each recommendation must contain:
+
+- Recommendation title.
+- Reason.
+- Compatibility.
+- Supported features.
+- Unsupported features.
+- Warning.
+- Configuration preview.
+- Changes.
+- Original value backup.
+- Confirmation.
+- Apply.
+- Verification.
+- Rollback.
+- History.
+
+Do not generate fake benchmarks or FPS predictions.
+
+---
+
+25. OEM COMPATIBILITY CENTER
+
+Support compatibility diagnostics for:
+
+- Realme.
+- OPPO.
+- Xiaomi.
+- Redmi.
+- POCO.
+- Samsung.
+- ASUS.
+- Vivo.
+- iQOO.
+- Motorola.
+- Google Pixel.
+- Other Android devices.
+
+Detect manufacturer and model using actual device information.
+
+Do not hardcode unsupported features solely based on manufacturer.
+
+Feature status:
+
+- Available.
+- Verified.
+- Unsupported.
+- Requires Permission.
+- Requires Shizuku.
+- Unknown.
+- Failed.
+
+---
+
+26. BACKGROUND MANAGEMENT CENTER
+
+Implement safe background diagnostics.
+
+- Application inventory.
+- User-controlled whitelist.
+- App Standby information.
+- Doze diagnostics.
+- Job Scheduler diagnostics.
+- Background activity diagnostics.
+- User-selected app management.
+- Background configuration information.
+- Compatibility.
+- Confirmation.
+- Restore.
+- Reset.
+
+Do not force-stop all applications.
+
+Do not terminate foreground games.
+
+Protect system applications and essential services.
+
+Do not interfere with accessibility services or emergency functionality.
+
+---
+
+27. SHIZUKU INTEGRATION CENTER
+
+Implement genuine Shizuku integration.
+
+Shizuku is optional.
+
+Core application functions must remain available without Shizuku.
+
+Interface
+
+Display:
+
+- Shizuku installed status where detectable.
+- Shizuku service status.
+- Connection status.
+- Version where available.
+- Binder connection status.
+- Permission status.
+- Connection errors.
+- Retry.
+- Reconnect.
+- Disconnect state.
+- Permission revoked state.
+- Operation results.
+- Error logs.
+
+Implementation
+
+Use the official Shizuku API and a compatible implementation.
+
+Implement:
+
+- Binder connection.
+- Service lifecycle.
+- Permission request.
+- Permission handling.
+- Connection listener.
+- Disconnection handling.
+- Retry.
+- Operation registry.
+- Validation.
+- Compatibility.
+- Timeout.
+- Result handling.
+- Verification.
+- Error logging.
+- Backup.
+- Restore.
+
+Only allow predefined, validated operations.
+
+Never execute arbitrary shell commands directly from user-entered strings.
+
+Never claim an operation succeeded if it failed.
+
+Supported operations registry
+
+The application should expose a registry of operations that are explicitly supported by the current Android version and device.
+
+Each operation must be:
+
+- Documented.
+- Validated.
+- Permission checked.
+- Compatibility checked.
+- Confirmed.
+- Executed.
+- Verified where possible.
+- Reversible where appropriate.
+
+---
+
+28. PER-GAME CUSTOMIZATION STUDIO
+
+Implement a local customization center for every game.
+
+Customization
+
+- Game accent color.
+- Gradient.
+- Background image.
+- Custom banner.
+- Custom icon.
+- Custom cover.
+- Card style.
+- Card opacity.
+- Border style.
+- Glow effect.
+- Blur effect.
+- Layout selection.
+- Compact layout.
+- Expanded layout.
+- Section ordering.
+- Section visibility.
+- Custom profile icon.
+- Profile color.
+- Profile name.
+- Profile description.
+- Custom quick actions.
+- Custom monitoring card.
+- Custom overlay layout.
+- Custom notes.
+- Tags.
+- Custom category.
+
+Functions
+
+- Preview.
+- Apply.
+- Save.
+- Reset.
+- Export.
+- Restore.
+
+All customization must be local and must not modify the original application assets.
+
+---
+
+29. GAME SESSION HISTORY
+
+Implement local session tracking where possible.
+
+Store:
+
+- Game name.
+- Package name.
+- Session start.
+- Session end.
+- Session duration.
+- Active profile.
+- Monitoring summary where available.
+- Configuration changes.
+- Session notes.
+
+Implement:
+
+- History list.
+- Search.
+- Filter.
+- Export.
+- Clear history.
+- Confirmation.
+- Privacy controls.
+
+If reliable session detection is unavailable, provide manual session tracking.
+
+---
+
+30. SETTINGS REGISTRY
+
+Create a centralized settings registry.
+
+Each setting should support the following data model:
+
+- setting_id
+- game_package
+- category
+- name
+- description
+- original_value
+- selected_value
+- current_value
+- supported_status
+- required_permission
+- android_compatibility
+- device_compatibility
+- risk_level
+- validation_result
+- operation_status
+- verification_result
+- last_modified
+- restore_status
+- history
+
+Use appropriate data types.
+
+Fields may remain unavailable when not accessible.
+
+Never invent values.
+
+---
+
+31. BACKUP & RESTORE CENTER
+
+Implement a local, versioned JSON backup system.
+
+Backup contents
+
+- Application version.
+- Backup timestamp.
+- Device compatibility metadata.
+- Game library.
+- Favorites.
+- Pinned games.
+- Hidden games.
+- Groups.
+- Tags.
+- Custom labels.
+- Custom game profiles.
+- Game customization.
+- Display configuration records.
+- DPI records.
+- Resolution records.
+- Refresh rate records.
+- Graphics preferences.
+- Overlay preferences.
+- Monitoring preferences.
+- Original values where available.
+- Configuration history.
+- UI preferences.
+- Theme.
+- Accent.
+- Font preference.
+- Banner.
+- Whitelist.
+- Profile history.
+
+Functions
+
+- Export.
+- Import.
+- Preview.
+- Validate.
+- Detect conflicts.
+- Compatibility check.
+- Restore.
+- Verification.
+- Rollback.
+- Local storage.
+
+Use Storage Access Framework.
+
+Do not assume arbitrary filesystem access.
+
+Backup and restore must not overwrite system configuration without validation and confirmation.
+
+---
+
+32. PERFORMANCE DIAGNOSTICS REPORT
+
+Create an offline report generator.
+
+Report information
+
+- Device model.
+- Manufacturer.
+- Android version.
+- API level.
+- CPU.
+- RAM.
+- GPU where available.
+- Display.
+- Supported refresh rates.
+- Battery.
+- Thermal status.
+- Shizuku status.
+- Permissions.
+- Supported features.
+- Unsupported features.
+- Current profile.
+- Applied settings.
+- Failed operations.
+- Compatibility warnings.
+- Monitoring results.
+
+Implement:
+
+- Report preview.
+- Export as text.
+- Export locally.
+- Share using Android share mechanisms.
+
+Do not include unnecessary personal information.
+
+---
+
+33. NOTIFICATION CENTER
+
+Implement Android notifications where permitted.
+
+Categories:
+
+- Profile applied.
+- Profile restored.
+- Shizuku disconnected.
+- Operation failed.
+- Compatibility warning.
+- Thermal warning.
+- Monitoring status.
+
+Implement:
+
+- Notification permission handling.
+- Notification channels.
+- Notification settings.
+- Permission recovery.
+
+Avoid excessive notifications.
+
+---
+
+34. UI CUSTOMIZATION CENTER
+
+Create a complete appearance customization page.
+
+Theme
+
+- AMOLED Black.
+- Lavender Gray.
+- Purple.
+- Silver.
+- Custom Accent.
+- Dark Theme.
+- AMOLED Theme.
+- Material 3.
+
+Custom colors
+
+- Primary.
+- Secondary.
+- Accent.
+- Background.
+- Surface.
+- Card.
+- Border.
+- Text.
+
+Support validated hexadecimal color input.
+
+Layout
+
+- Corner radius: 0–32.
+- Small text.
+- Default text.
+- Large text.
+- Larger text.
+- Icon size.
+- Custom font.
+- Compatible TTF/OTF import.
+- Banner image.
+- Crop.
+- Move.
+- Zoom.
+- Rotate.
+- Preview.
+- Apply.
+- Reset.
+
+Navigation customization
+
+- Pill.
+- Capsule.
+- Indicator.
+- Material Bar.
+- Left.
+- Center.
+- Right.
+- Navigation size.
+- Icon size.
+- Text size.
+
+Liquid Glass customization
+
+- Frosted glass.
+- Blur.
+- Surface opacity.
+- Saturation.
+- Visual effects.
+- Refraction-inspired UI effects.
+
+Additional customization
+
+- Toast customization.
+- Bottom navigation customization.
+- UI backup.
+- UI restore.
+- UI reset.
+
+All customization must remain cosmetic unless explicitly connected to a supported functional setting.
+
+---
+
+35. ABOUT PAGE
+
+Display:
+
+SYMPHINE GAME SPACE
+
+Developer: Reo Moser
+
+Version: 1.0.0
+
+Package: com.symphine.gamespace
+
+Include:
+
+- Application description.
+- Privacy information.
+- Offline functionality.
+- License information.
+- Open-source dependency information.
+- Supported Android versions.
+- Changelog.
+- Compatibility information.
+
+---
+
+36. PRIVACY & SECURITY
+
+The application must be offline-first.
+
+Do not require:
+
+- Account registration.
+- Cloud login.
+- Advertising SDKs.
+- Analytics SDKs.
+- Remote configuration.
+- Mandatory internet access.
+
+Avoid unnecessary INTERNET permission.
+
+If optional network-related permissions are included, explain their purpose and make them genuinely optional.
+
+Store configurations locally.
+
+Provide local data deletion.
+
+Validate imported files.
+
+Protect against malformed JSON.
+
+Do not execute imported content.
+
+Do not treat imported backup content as executable commands.
+
+---
+
+37. PERMISSION MANAGEMENT
+
+Create a centralized permission manager.
+
+Manage permissions and access where required:
+
+- Package visibility.
+- Overlay permission.
+- Notification permission.
+- DND access.
+- Screen recording consent.
+- Storage through Storage Access Framework.
+- Shizuku permission.
+- Other permissions required by implemented features.
+
+For each permission:
+
+- Explain why it is needed.
+- Show status.
+- Request only when necessary.
+- Provide recovery instructions.
+- Provide fallback.
+- Never claim access is granted without verification.
+
+---
+
+38. OPERATION VERIFICATION
+
+Implement a unified operation system.
+
+Each system operation must follow:
+
+1. Detect capability.
+2. Validate input.
+3. Check compatibility.
+4. Check permissions.
+5. Record original state when accessible.
+6. Display preview.
+7. Request confirmation.
+8. Execute the supported operation.
+9. Read back actual state where possible.
+10. Verify the result.
+11. Record operation history.
+12. Report success or failure.
+13. Rollback when appropriate.
+
+Operation states:
+
+- Available.
+- Verified.
+- Unsupported.
+- Requires Permission.
+- Requires Shizuku.
+- Unknown.
+- Pending.
+- Applying.
+- Applied.
+- Failed.
+- Restoring.
+- Restored.
+- Rollback Failed.
+
+Do not display Verified when verification has not occurred.
+
+Do not display Applied when the operation was merely requested.
+
+Do not hide errors.
+
+---
+
+39. APPLICATION PERFORMANCE
+
+Optimize the application itself.
+
+Requirements:
+
+- Lifecycle-safe monitoring.
+- Efficient Compose rendering.
+- Avoid unnecessary recompositions.
+- Avoid excessive polling.
+- Use appropriate coroutine dispatchers.
+- Avoid blocking the main thread.
+- Efficient game scanning.
+- Efficient database operations.
+- Efficient monitoring.
+- Battery-conscious background behavior.
+- Proper service lifecycle.
+- Proper permission lifecycle.
+- Crash handling.
+- Error logging.
+
+Do not run continuous monitoring without user consent or an appropriate active state.
+
+---
+
+40. BUILD & DELIVERY REQUIREMENTS
+
+Deliver a real native Android project.
+
+Required files:
+
+- AndroidManifest.xml.
+- Kotlin source files.
+- Gradle project configuration.
+- Gradle Kotlin DSL scripts.
+- Dependency configuration.
+- Compose UI.
+- ViewModels.
+- Repository implementations.
+- System API integrations.
+- Shizuku integration.
+- Monitoring.
+- Data persistence.
+- Backup and restore.
+- Permission handling.
+- Compatibility layer.
+- README.
+- Changelog.
+- Build instructions.
+
+Build verification
+
+When the environment supports it:
+
+1. Verify project structure.
+2. Resolve Gradle dependencies.
+3. Verify Kotlin compilation.
+4. Verify AndroidManifest.
+5. Verify permissions.
+6. Verify package name.
+7. Verify version.
+8. Verify navigation.
+9. Verify database initialization.
+10. Verify DataStore.
+11. Verify game detection.
+12. Verify profile persistence.
+13. Verify backup and restore.
+14. Verify monitoring.
+15. Verify Shizuku integration.
+16. Verify permission handling.
+17. Verify error handling.
+18. Compile debug APK.
+19. Compile release APK where possible.
+20. Verify APK output.
+21. Verify installation compatibility where test environment allows.
+
+APK requirements
+
+- Application: SYMPHINE GAME SPACE.
+- Package: com.symphine.gamespace.
+- Version: 1.0.0.
+- Minimum Android: 10.
+- Target: Latest stable SDK.
+- Architecture: Native Kotlin.
+- UI: Jetpack Compose.
+- Mode: Offline-first.
+- Root: Not required for core functionality.
+- Shizuku: Optional.
+
+Generate an installable APK when the environment supports Android compilation.
+
+Never claim APK compilation succeeded without verifying the artifact.
+
+---
+
+41. MOBILE BUILD WORKFLOW
+
+Structure the project so it can be built on an Android phone without requiring a desktop computer, when a compatible mobile development environment is available.
+
+Provide a mobile workflow using compatible tools such as:
+
+- AndroidIDE where compatible.
+- AIDE where compatible.
+- Other legitimate Android build environments.
+
+Do not assume every mobile IDE supports every Gradle, Kotlin or Android SDK version.
+
+Provide:
+
+- Project import instructions.
+- Gradle sync instructions.
+- Dependency resolution instructions.
+- Build instructions.
+- APK location.
+- APK installation instructions.
+- Build troubleshooting.
+
+---
+
+42. SHIZUKU SETUP GUIDE
+
+Provide a complete user guide.
+
+1. Install Shizuku from its official distribution source.
+2. Start Shizuku using a supported method.
+3. Confirm Shizuku service status.
+4. Open SYMPHINE GAME SPACE.
+5. Open Shizuku Integration Center.
+6. Request permission.
+7. Grant access.
+8. Confirm connection.
+9. Run a supported operation.
+10. Verify the result.
+11. Disconnect or revoke permission when desired.
+
+Provide separate explanations for supported wireless debugging and device-specific methods.
+
+Do not imply Shizuku provides root access.
+
+Do not claim every Android device supports every operation.
+
+---
+
+43. README DOCUMENTATION
+
+Generate a detailed README containing:
+
+- Project overview.
+- Application features.
+- Project architecture.
+- Android compatibility.
+- Supported features.
+- Unsupported features.
+- Permission requirements.
+- Shizuku setup.
+- Build instructions.
+- Mobile build instructions.
+- Installation instructions.
+- Backup instructions.
+- Restore instructions.
+- Troubleshooting.
+- Compatibility limitations.
+- Privacy policy.
+- Changelog.
+- License information.
+
+---
+
+44. VERSION 1.0.0 ROADMAP
+
+Priority A — Core
+
+- Native application.
+- Navigation.
+- Premium UI.
+- Device information.
+- Dashboard.
+- Local persistence.
+- Settings.
+- Error handling.
+
+Priority B — Game Library
+
+- Installed game detection.
+- Game scanner.
+- Game launcher.
+- Search.
+- Sorting.
+- Favorites.
+- Pin.
+- Hide.
+- Custom groups.
+- Game Detail Center.
+- Local customization.
+- Game profiles.
+
+Priority C — Monitoring
+
+- RAM.
+- Battery.
+- Thermal.
+- Storage.
+- CPU information.
+- Display information.
+- Session monitoring where reliable.
+
+Priority D — Display Center
+
+- Refresh rate diagnostics.
+- Supported refresh modes.
+- Resolution diagnostics.
+- Density information.
+- Supported density control where safe.
+- Backup.
+- Restore.
+- Verification.
+
+Priority E — Performance
+
+- Profile Engine.
+- Balanced.
+- Gaming.
+- Battery Saver.
+- Smart.
+- Custom.
+- Recommended profile.
+- Configuration history.
+
+Priority F — Shizuku
+
+- Connection.
+- Permission.
+- Predefined supported operations.
+- Operation verification.
+- Error handling.
+- Backup.
+- Restore.
+
+Priority G — Advanced Game Library
+
+- Per-game profiles.
+- Per-game display.
+- Per-game customization.
+- Per-game monitoring.
+- Per-game compatibility.
+- Per-game configuration backup.
+
+Priority H — Advanced Features
+
+- Gaming overlay.
+- Gaming tools.
+- Diagnostics.
+- Logging information.
+- Background management.
+- Performance report.
+- Advanced customization.
+
+Do not sacrifice stability to implement lower-priority features.
+
+---
+
+45. ACCEPTANCE TESTS
+
+Core
+
+- Application launches.
+- Navigation works.
+- UI state persists.
+- Theme persists.
+- No fatal crash during normal navigation.
+
+Game Library
+
+- Installed applications are detected appropriately.
+- Game search works.
+- Sorting works.
+- Game cards display actual icons.
+- Launch action works for launchable games.
+- Favorites persist.
+- Hidden games persist.
+- Game customization persists.
+- Game profile persists.
+- Individual Game Detail Center works.
+
+Monitoring
+
+- Monitoring values are not random.
+- Unsupported sensors are identified.
+- Monitoring stops correctly.
+- Monitoring lifecycle is managed.
+- Battery information uses actual Android data.
+
+Display
+
+- Supported modes are detected.
+- Unsupported modes are not presented as supported.
+- Operation result is verified.
+- Restore behavior is documented.
+
+Profiles
+
+- Profiles persist.
+- Profile preview works.
+- Supported settings are identified.
+- Failed operations are reported.
+- Rollback is handled appropriately.
+
+Shizuku
+
+- Connection state is accurately displayed.
+- Permission handling works.
+- Disconnect is handled.
+- Unsupported operations are rejected.
+- Failed operations are not reported as successful.
+
+Backup
+
+- JSON backup is generated.
+- Backup is validated.
+- Import preview works.
+- Restore is validated.
+- Invalid files are rejected.
+- Failed restore does not falsely report success.
+
+UI
+
+- Loading states work.
+- Empty states work.
+- Unsupported states work.
+- Permission states work.
+- Errors are visible.
+- Buttons are functional.
+- Responsive layouts are usable.
+
+---
+
+46. FINAL DELIVERY
+
+Deliver the actual implementation, not a theoretical explanation.
+
+Required deliverables:
+
+1. Complete native Android project.
+2. Kotlin source code.
+3. Gradle Kotlin DSL configuration.
+4. AndroidManifest.
+5. Compose UI.
+6. Repository layer.
+7. ViewModel layer.
+8. System API integrations.
+9. Game Library.
+10. Game Detail Center.
+11. Performance Engine.
+12. Display Center.
+13. Monitoring.
+14. Shizuku integration.
+15. Backup and Restore.
+16. Diagnostics.
+17. Permission management.
+18. Compatibility layer.
+19. README.
+20. Changelog.
+21. Build instructions.
+22. Mobile build instructions.
+23. APK installation instructions.
+24. Shizuku setup instructions.
+25. Compatibility documentation.
+26. Debug APK where possible.
+27. Release APK where possible.
+28. Build verification report.
+29. Known limitations.
+
+If the environment supports compiling Android applications, compile and provide the APK.
+
+If the environment does not support Android compilation, provide the complete project source and clear instructions for building the APK using a compatible Android development environment.
+
+Never invent a download link.
+
+Never claim a build succeeded unless the APK has actually been generated and verified.
+
+Never replace the native application with HTML, WebView, screenshots, mockups or a conceptual description.
+
+---
+
+FINAL DIRECTIVE
+
+Build SYMPHINE GAME SPACE as a genuine native Android Gaming Center.
+
+The Advanced Game Library must be the application's primary feature and must provide an individual Game Detail Center for every supported game.
+
+Prioritize:
+
+- Real Android functionality.
+- Modern Kotlin architecture.
+- Premium Liquid Glass UI.
+- Device compatibility.
+- Offline functionality.
+- Safe system configuration.
+- Real monitoring.
+- Reversible changes.
+- Shizuku integration.
+- User-controlled customization.
+- Verification.
+- Stability.
+- Actual installable APK.
+
+Do not stop at planning. Do not stop at UI. Do not stop at generating source snippets. Implement, validate, compile and deliver the actual application wherever the environment permits.
+
+PROJECT: SYMPHINE GAME SPACE
+DEVELOPER: REO MOSER
+VERSION: 1.0.0
+PACKAGE: com.symphine.gamespace
+PLATFORM: ANDROID NATIVE
+TECHNOLOGY: KOTLIN + JETPACK COMPOSE + MATERIAL 3
+MODE: OFFLINE-FIRST
+ROOT: NOT REQUIRED FOR CORE FEATURES
+SHIZUKU: OPTIONAL
+PRIMARY FEATURE: ADVANCED GAME LIBRARY & PER-GAME DETAIL CENTER
+
+buat Makai fitur sh gw itu 

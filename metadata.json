@@ -1,0 +1,6 @@
+{
+  "name": "SYMPHINE GAME SPACE",
+  "description": "Native Android gaming hub, advanced per-game library, hardware diagnostics, real-time monitoring, display center, and optional Shizuku integration by Reo Moser.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

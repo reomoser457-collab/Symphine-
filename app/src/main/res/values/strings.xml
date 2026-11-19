@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Symphine Space</string>
+    <string name="app_full_name">SYMPHINE GAME SPACE</string>
+    <string name="developer_name">Reo Moser</string>
+    <string name="shizuku_provider_authority">com.symphine.gamespace.shizuku</string>
+</resources>
